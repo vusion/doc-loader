@@ -1,0 +1,24 @@
+{
+    "name": "vision-loader",
+    "description": "Webpack loader for Vision components.",
+    "version": "0.0.1",
+    "author": "Rainfore <rainforest92@126.com>",
+    "main": "./index.js",
+    "repository": "vision-app/vision-loader",
+    "bugs": {
+        "url": "http://github.com/vision-app/vision-loader/issues"
+    },
+    "license": "MIT",
+    "keywords": [
+      "vision",
+      "vue",
+      "webpack",
+      "loader"
+    ],
+    "tags": [
+      "vision",
+      "vue",
+      "webpack",
+      "loader"
+    ]
+}
