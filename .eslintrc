@@ -1,0 +1,7 @@
+{
+    "extends": "rgui",
+    "env": {
+        "commonjs": true,
+        "node": true,
+    },
+}

@@ -1,36 +1,76 @@
 const fs = require('fs');
 const path = require('path');
-const loaderUtils = require('loader-utils');
 
-const vueMultiFileLoaderPath = require.resolve('./vue-multi-file-loader.js');
+const views = require('./lib/views');
+const hljs = require('highlight.js');
+const jsdocParser = require('./lib/jsdoc-parser');
+const codeActivator = require('./lib/code-activator');
+const Vue = require('vue');
+const vueRenderer = require('vue-server-renderer').createRenderer({
+    template: views.template,
+});
 
-loaderUtils.queryStringify = (query) => {
-    return Object.keys(query).map((key) => key + '=' + query[key]).join('&');
-};
+// Avoid base file to override sub's
+const caches = {};
 
 module.exports = function (content) {
     this.cacheable();
 
-    const query = loaderUtils.parseQuery(this.query);
-
+    const jsPath = this.resourcePath;
     const vuePath = path.dirname(this.resourcePath);
     const vueName = path.basename(vuePath, '.vue');
     const vueDir = path.dirname(vuePath);
-
     const markdownPath = path.join(vuePath, 'index.md');
-    const stylePath = path.join(vuePath, 'index.css');
 
-    const outputs = [];
-    if (fs.existsSync(markdownPath)) {
-        const outputPath = '../' + path.join(query.docsPath, path.relative(process.cwd() + '/src', vueDir)) + '/';
-        const fileLoaderQuery = loaderUtils.queryStringify({
-            name: vueName + '.html',
-            outputPath,
-            // publicPath
+    if (caches[vueName] && caches[vueName] !== vuePath)
+        return content;
+    else
+        caches[vueName] = vuePath;
+
+    this.addDependency(markdownPath);
+    if (!fs.existsSync(markdownPath))
+        return content;
+
+    const callback = this.async();
+
+    // @TODO: loader options for markdown-it
+    const mdRenderer = require('markdown-it')({
+        langPrefix: 'lang-',
+        html: true,
+        linkify: true,
+        highlight(str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    const result = hljs.highlight(lang, str).value;
+                    return `<pre class="hljs ${this.langPrefix}${lang}"><code>${result}</code></pre>`;
+                } catch (e) {}
+            }
+
+            const result = mdRenderer.utils.escapeHtml(str);
+            return `<pre class="hljs"><code>${result}</code></pre>`;
+        },
+    });
+
+    fs.readFile(markdownPath, 'utf8', (err, markdown) => {
+        if (err)
+            return callback(err);
+
+        const result = codeActivator.activate(markdown);
+        result.html = mdRenderer.render(result.markdown);
+        const api = jsdocParser.parse(content);
+
+        vueRenderer.renderToString(new Vue({
+            template: `<article v-if="api.class" class="v-article">${views.api}</article>`,
+            data: { api },
+        }), (err, html) => {
+            html = `
+                <article class="v-article">${result.html}</article>
+                ${html}
+                <script>${result.script}</script>
+            `;
+
+            this.emitFile(vueName + '.html', html);
+            callback(null, content);
         });
-        outputs.push('var __vision_doc__ = require(' + loaderUtils.stringifyRequest(this, `!!file-loader?${fileLoaderQuery}!markdown-it-loader!${vueMultiFileLoaderPath}?type=md!${vuePath}`) + ');');
-    }
-
-    outputs.push('module.exports = require(' + loaderUtils.stringifyRequest(this, `!!vue-loader!${vueMultiFileLoaderPath}!${vuePath}`) + ');');
-    return outputs.join('\n');
-}
+    });
+};

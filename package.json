@@ -1,24 +1,30 @@
 {
-    "name": "vision-loader",
-    "description": "Webpack loader for Vision components.",
-    "version": "0.0.1",
-    "author": "Rainfore <rainforest92@126.com>",
-    "main": "./index.js",
-    "repository": "vision-app/vision-loader",
-    "bugs": {
-        "url": "http://github.com/vision-app/vision-loader/issues"
-    },
-    "license": "MIT",
-    "keywords": [
-      "vision",
-      "vue",
-      "webpack",
-      "loader"
-    ],
-    "tags": [
-      "vision",
-      "vue",
-      "webpack",
-      "loader"
-    ]
+  "name": "vision-loader",
+  "description": "Webpack loader for Vision components.",
+  "version": "0.0.1",
+  "author": "Rainfore <rainforest92@126.com>",
+  "main": "./index.js",
+  "repository": "vision-app/vision-loader",
+  "bugs": {
+    "url": "http://github.com/vision-app/vision-loader/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vision",
+    "vue",
+    "webpack",
+    "loader"
+  ],
+  "tags": [
+    "vision",
+    "vue",
+    "webpack",
+    "loader"
+  ],
+  "dependencies": {
+    "highlight.js": "^9.10.0",
+    "loader-utils": "^1.0.3",
+    "markdown-it": "^8.3.1",
+    "vue-server-renderer": "^2.2.4"
+  }
 }
