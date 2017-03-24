@@ -1,12 +1,12 @@
 {
-  "name": "vision-loader",
-  "description": "Webpack loader for Vision components.",
+  "name": "vision-doc-loader",
+  "description": "Webpack loader to generate Vision component docs.",
   "version": "0.0.1",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
-  "repository": "vision-app/vision-loader",
+  "repository": "vision-app/vision-doc-loader",
   "bugs": {
-    "url": "http://github.com/vision-app/vision-loader/issues"
+    "url": "http://github.com/vision-app/vision-doc-loader/issues"
   },
   "license": "MIT",
   "keywords": [

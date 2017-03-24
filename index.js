@@ -6,9 +6,7 @@ const hljs = require('highlight.js');
 const jsdocParser = require('./lib/jsdoc-parser');
 const codeActivator = require('./lib/code-activator');
 const Vue = require('vue');
-const vueRenderer = require('vue-server-renderer').createRenderer({
-    template: views.template,
-});
+const vueRenderer = require('vue-server-renderer').createRenderer();
 
 // Avoid base file to override sub's
 const caches = {};
@@ -63,11 +61,11 @@ module.exports = function (content) {
             template: `<article v-if="api.class" class="v-article">${views.api}</article>`,
             data: { api },
         }), (err, html) => {
-            html = `
+            html = views.template.replace('<!--vue-ssr-outlet-->', `
                 <article class="v-article">${result.html}</article>
                 ${html}
                 <script>${result.script}</script>
-            `;
+            `);
 
             this.emitFile(vueName + '.html', html);
             callback(null, content);
