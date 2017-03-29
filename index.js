@@ -18,7 +18,7 @@ module.exports = function (content) {
     const vuePath = path.dirname(this.resourcePath);
     const vueName = path.basename(vuePath, '.vue');
     const vueDir = path.dirname(vuePath);
-    const markdownPath = path.join(vuePath, 'index.md');
+    const markdownPath = path.join(vuePath, 'README.md');
 
     if (caches[vueName] && caches[vueName] !== vuePath)
         return content;
@@ -58,11 +58,11 @@ module.exports = function (content) {
         const api = jsdocParser.parse(content);
 
         vueRenderer.renderToString(new Vue({
-            template: `<article v-if="api.class" class="v-article">${views.api}</article>`,
+            template: `<article v-if="api.class" class="vi-article">${views.api}</article>`,
             data: { api },
         }), (err, html) => {
             html = views.template.replace('<!--vue-ssr-outlet-->', `
-                <article class="v-article">${result.html}</article>
+                <article class="vi-article">${result.html}</article>
                 ${html}
                 <script>${result.script}</script>
             `);

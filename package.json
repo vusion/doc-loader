@@ -1,7 +1,7 @@
 {
   "name": "vision-doc-loader",
   "description": "Webpack loader to generate Vision component docs.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "repository": "vision-app/vision-doc-loader",
