@@ -1,22 +1,22 @@
 {
-  "name": "vision-doc-loader",
-  "description": "Webpack loader to generate Vision component docs.",
+  "name": "vusion-doc-loader",
+  "description": "Webpack loader to generate Vusion component docs.",
   "version": "0.0.2",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
-  "repository": "vision-app/vision-doc-loader",
+  "repository": "vusion/vusion-doc-loader",
   "bugs": {
-    "url": "http://github.com/vision-app/vision-doc-loader/issues"
+    "url": "http://github.com/vusion/vusion-doc-loader/issues"
   },
   "license": "MIT",
   "keywords": [
-    "vision",
+    "vusion",
     "vue",
     "webpack",
     "loader"
   ],
   "tags": [
-    "vision",
+    "vusion",
     "vue",
     "webpack",
     "loader"
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "eslint": "^3.18.0",
-    "eslint-config-vision": "^1.1.0"
+    "eslint-config-vusion": "^1.1.0"
   }
 }
