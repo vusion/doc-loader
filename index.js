@@ -58,11 +58,11 @@ module.exports = function (content) {
         const api = jsdocParser.parse(content);
 
         vueRenderer.renderToString(new Vue({
-            template: `<article v-if="api.class" class="vi-article">${views.api}</article>`,
+            template: `<article v-if="api.class" class="u-article">${views.api}</article>`,
             data: { api },
         }), (err, html) => {
             html = views.template.replace('<!--vue-ssr-outlet-->', `
-                <article class="vi-article">${result.html}</article>
+                <article class="u-article">${result.html}</article>
                 ${html}
                 <script>${result.script}</script>
             `);
