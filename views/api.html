@@ -18,7 +18,7 @@
                 <td class="f-wsn"><code v-if="param.default">{{ param.default }}</code></td>
                 <td>{{ param.description }}</td>
             </tr>
-            <tr v-else><td class="f-tac" colspan="5">No Params</td></tr>
+            <tr v-else><td class="f-tac" colspan="5">No params</td></tr>
         </tbody>
     </table>
 </template>
@@ -38,7 +38,7 @@
                     <td class="f-wsn"><code v-if="param.default">{{ param.default }}</code></td>
                     <td>{{ param.description }}</td>
                 </tr>
-                <tr v-else><td class="f-tac" colspan="4">No Params</td></tr>
+                <tr v-else><td class="f-tac" colspan="4">No params</td></tr>
             </tbody>
             <thead>
                 <tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr>
@@ -70,7 +70,7 @@
                     <td class="f-wsn"><code v-if="param.default">{{ param.default }}</code></td>
                     <td>{{ param.description }}</td>
                 </tr>
-                <tr v-else><td class="f-tac" colspan="4">No Params</td></tr>
+                <tr v-else><td class="f-tac" colspan="4">No params</td></tr>
             </tbody>
             <thead>
                 <tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr>
@@ -81,7 +81,7 @@
                     <td class="f-wsn">{{ method.return.type }}</td>
                     <td colspan="2">{{ method.return.description }}</td>
                 </tr>
-                <tr v-else><td class="f-tac" colspan="4">No Returns</td></tr>
+                <tr v-else><td class="f-tac" colspan="4">No returns</td></tr>
             </tbody>
         </table>
     </template>
@@ -93,7 +93,7 @@
         <p>{{ event.description }}</p>
         <table>
             <thead>
-                <tr><th width="33%">属性</th><th width="33%">Type</th><th width="33%">Description</th></tr>
+                <tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr>
             </thead>
             <tbody>
                 <tr v-if="event.properties.length" v-for="property in event.properties">
@@ -101,7 +101,7 @@
                     <td class="f-wsn">{{ property.type }}</td>
                     <td class="f-wsn">{{ property.description }}</td>
                 </tr>
-                <tr v-else><td class="f-tac" colspan="4">无属性</td></tr>
+                <tr v-else><td class="f-tac" colspan="4">No properties</td></tr>
             </tbody>
         </table>
     </template>
