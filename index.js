@@ -61,7 +61,7 @@ module.exports = function (content) {
             template: `<article v-if="api.class" class="u-article">${views.api}</article>`,
             data: { api },
         }), (err, html) => {
-            html = views.template.replace('<!--vue-ssr-outlet-->', `
+            html = views.component.replace('<!--vue-ssr-outlet-->', `
                 <article class="u-article">${result.html}</article>
                 ${html}
                 <script>${result.script}</script>
@@ -72,3 +72,5 @@ module.exports = function (content) {
         });
     });
 };
+
+module.exports.caches = caches;
