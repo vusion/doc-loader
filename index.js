@@ -36,11 +36,15 @@ module.exports = function (content) {
         langPrefix: 'lang-',
         html: true,
         linkify: true,
-        highlight(str, lang) {
+        highlight(str, rawLang) {
+            let lang = rawLang;
+            if (rawLang === 'vue')
+                lang = 'html';
+
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     const result = hljs.highlight(lang, str).value;
-                    return `<pre class="hljs ${this.langPrefix}${lang}"><code>${result}</code></pre>`;
+                    return `<pre class="hljs ${this.langPrefix}${rawLang}"><code>${result}</code></pre>`;
                 } catch (e) {}
             }
 
