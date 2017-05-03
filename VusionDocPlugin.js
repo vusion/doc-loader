@@ -16,7 +16,7 @@ class VusionDocPlugin {
                 template: `<article class="u-article">
                     <h1>{{ title }}</h1>
                     <ul>
-                        <li v-for="item in list"><a :href="item + '.html'">&lt;{{ item }}&gt;</a></li>
+                        <li v-for="item in list"><a class="u-link" :href="item + '.html'">&lt;{{ item }}&gt;</a></li>
                     </ul>
                 </article>`,
                 data: { list, title: pkg.description },
