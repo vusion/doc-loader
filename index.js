@@ -8,10 +8,12 @@ const codeActivator = require('./lib/code-activator');
 const Vue = require('vue');
 const vueRenderer = require('vue-server-renderer').createRenderer();
 
+const Plugin = require('./VusionDocPlugin');
+
 // Avoid base file to override sub's
 const caches = {};
 
-module.exports = function (content) {
+const vusionDocLoader = function (content) {
     this.cacheable();
 
     const jsPath = this.resourcePath;
@@ -77,4 +79,7 @@ module.exports = function (content) {
     });
 };
 
-module.exports.caches = caches;
+vusionDocLoader.Plugin = Plugin;
+vusionDocLoader.caches = caches;
+
+module.exports = vusionDocLoader;
