@@ -2,7 +2,13 @@ const views = require('./lib/views');
 const Vue = require('vue');
 const vueRenderer = require('vue-server-renderer').createRenderer();
 const path = require('path');
-const pkg = require(path.resolve(process.cwd(), 'package.json'));
+
+let pkg;
+try {
+    pkg = require(path.resolve(process.cwd(), 'package.json'));
+} catch(e) {
+    pkg = {};
+}
 
 class VusionDocPlugin {
     apply(compiler) {
