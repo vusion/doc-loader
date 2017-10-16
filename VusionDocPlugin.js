@@ -6,7 +6,7 @@ const path = require('path');
 let pkg;
 try {
     pkg = require(path.resolve(process.cwd(), 'package.json'));
-} catch(e) {
+} catch (e) {
     pkg = {};
 }
 
