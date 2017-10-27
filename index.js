@@ -1,19 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const views = require('./lib/views');
 const hljs = require('highlight.js');
-const jsdocParser = require('./lib/jsdoc-parser');
-const codeActivator = require('./lib/code-activator');
-const Vue = require('vue');
-const vueRenderer = require('vue-server-renderer').createRenderer();
-
-const Plugin = require('./VusionDocPlugin');
-
 // Avoid base file to override sub's
 const caches = {};
 
-const vusionDocLoader = function (content) {
+const vusionDocLoader = function(content) {
     this.cacheable();
 
     const jsPath = this.resourcePath;
@@ -33,53 +25,13 @@ const vusionDocLoader = function (content) {
 
     const callback = this.async();
 
-    // @TODO: loader options for markdown-it
-    const mdRenderer = require('markdown-it')({
-        langPrefix: 'lang-',
-        html: true,
-        linkify: true,
-        highlight(str, rawLang) {
-            let lang = rawLang;
-            if (rawLang === 'vue')
-                lang = 'html';
-
-            if (lang && hljs.getLanguage(lang)) {
-                try {
-                    const result = hljs.highlight(lang, str).value;
-                    return `<pre class="hljs ${this.langPrefix}${rawLang}"><code>${result}</code></pre>`;
-                } catch (e) {}
-            }
-
-            const result = mdRenderer.utils.escapeHtml(str);
-            return `<pre class="hljs"><code>${result}</code></pre>`;
-        },
-    });
-
     fs.readFile(markdownPath, 'utf8', (err, markdown) => {
         if (err)
             return callback(err);
-
-        const result = codeActivator.activate(markdown);
-        result.html = mdRenderer.render(result.markdown);
-        const api = jsdocParser.parse(content);
-
-        vueRenderer.renderToString(new Vue({
-            template: `<article v-if="api.class" class="u-article">${views.api}</article>`,
-            data: { api },
-        }), (err, html) => {
-            html = views.component.replace('<!--vue-ssr-outlet-->', `
-                <article class="u-article">${result.html}</article>
-                ${html}
-                <script>${result.script}</script>
-            `);
-
-            this.emitFile(vueName + '.html', html);
-            callback(null, content);
-        });
+        callback(null, content);
     });
 };
 
-vusionDocLoader.Plugin = Plugin;
 vusionDocLoader.caches = caches;
 
 module.exports = vusionDocLoader;
