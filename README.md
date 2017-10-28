@@ -1,13 +1,3 @@
 # vusion-doc-loader
 
-Generator docs automatically according to `README.md` and jsdoc-format comments in multifile vue directory.
-
-## Webpack Config
-
-``` javascript
-module: {
-    rules: [
-        { test: /\.vue[\\/]index\.js$/, loader: 'vusion-doc-loader' },
-    ],
-}
-```
+Generator docs according to `<doc>` tag in single-file vue and `README.md` in multi-file vue.
