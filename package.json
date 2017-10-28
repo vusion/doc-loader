@@ -1,41 +1,41 @@
 {
-    "name": "vusion-doc-loader",
-    "description": "Webpack loader to generate Vusion component docs.",
-    "version": "0.4.0",
-    "author": "Rainfore <rainforest92@126.com>",
-    "main": "./index.js",
-    "repository": "vusion/vusion-doc-loader",
-    "bugs": {
-        "url": "http://github.com/vusion/vusion-doc-loader/issues"
-    },
-    "license": "MIT",
-    "keywords": [
-        "vusion",
-        "vue",
-        "webpack",
-        "loader"
-    ],
-    "tags": [
-        "vusion",
-        "vue",
-        "webpack",
-        "loader"
-    ],
-    "dependencies": {
-        "globby": "^6.1.0",
-        "highlight.js": "^9.10.0",
-        "markdown-it": "^8.3.1",
-        "u-emitter.vue": "^0.1.1",
-        "u-list-view-item.vue": "^0.2.6",
-        "u-list-view.vue": "^0.2.6",
-        "u-router-item.vue": "^0.1.0",
-        "vue-router": "^3.0.1",
-        "vue-server-renderer": "^2.2.4",
-        "vusion-utils": "^0.1.0",
-        "vusion-vue-loader": "^14.0.0"
-    },
-    "devDependencies": {
-        "eslint": "^4.3.0",
-        "eslint-config-vusion": "^1.2.0"
-    }
+  "name": "vusion-doc-loader",
+  "description": "Webpack loader to generate Vusion component docs.",
+  "version": "0.5.0",
+  "author": "Rainfore <rainforest92@126.com>",
+  "main": "./index.js",
+  "repository": "vusion/vusion-doc-loader",
+  "bugs": {
+    "url": "http://github.com/vusion/vusion-doc-loader/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vusion",
+    "vue",
+    "webpack",
+    "loader"
+  ],
+  "tags": [
+    "vusion",
+    "vue",
+    "webpack",
+    "loader"
+  ],
+  "dependencies": {
+    "globby": "^6.1.0",
+    "highlight.js": "^9.10.0",
+    "markdown-it": "^8.3.1",
+    "u-emitter.vue": "^0.1.1",
+    "u-list-view-item.vue": "^0.2.6",
+    "u-list-view.vue": "^0.2.6",
+    "u-router-item.vue": "^0.1.0",
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.2.4",
+    "vusion-utils": "^0.1.0",
+    "vusion-vue-loader": "^14.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-vusion": "^1.2.0"
+  }
 }
