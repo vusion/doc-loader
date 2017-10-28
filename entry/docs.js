@@ -17,7 +17,7 @@ import SidebarMenu from '../common/u-sidebar-menu.vue';
 // import ThemeSelectItem from '../common/u-theme-select-item.vue';
 import '../common/atom-one-light.css';
 
-const Components = Object.assign({}, Library, {
+const Components = Object.assign({
     GlobalLayout,
     Article,
     Logo,
@@ -29,12 +29,12 @@ const Components = Object.assign({}, Library, {
     SidebarMenu,
     // ThemeSelect,
     // ThemeSelectItem,
-});
+}, Library);
 
 installComponents(Components, Vue);
 
 // 使用vusion-doc-loader 中的routes-loader 解析routes文件 得到想要的内容
-import routes from '../generate-loader!./routes';
+import routes from '../routes-loader!./routes';
 
 new Vue({
     router: new VueRouter({

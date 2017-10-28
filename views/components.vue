@@ -2,7 +2,9 @@
     <div>
         <div :class="$style.side">
             <u-sidebar size="small">
-                <u-sidebar-item exact v-for="item in routes[0].children[1].children" v-if="item.path" :to="'/components/'+item.path"><small>{{item.meta}}</small></u-sidebar-item>
+                <u-sidebar-item exact v-for="component in components" v-if="component.path" :to="'/components/'+component.path">
+                    <small>{{ component.meta.name }}</small>
+                </u-sidebar-item>
             </u-sidebar>
         </div>
         <div :class="$style.main">
@@ -12,10 +14,11 @@
 </template>
 
 <script>
-import routes from '../generate-loader!../entry/routes';
+import routes from '../routes-loader!../entry/routes';
 export default {
     data() {
-        return { routes, };
+        const components = routes[0].children[1].children;
+        return { components };
     },
 };
 </script>

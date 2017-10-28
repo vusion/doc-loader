@@ -5,7 +5,7 @@ const hljs = require('highlight.js');
 // Avoid base file to override sub's
 const caches = {};
 
-const vusionDocLoader = function(content) {
+const vusionDocLoader = function (content) {
     this.cacheable();
 
     const jsPath = this.resourcePath;
