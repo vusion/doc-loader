@@ -1,12 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const hljs = require('highlight.js');
 // Avoid base file to override sub's
 const caches = {};
 
 const vusionDocLoader = function (content) {
-    this.cacheable();
+    // this.cacheable();
 
     const jsPath = this.resourcePath;
     const vuePath = path.dirname(this.resourcePath);

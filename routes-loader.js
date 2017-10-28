@@ -1,14 +1,16 @@
 const path = require('path');
+const globby = require('globby');
 
 const config = global.vusionConfig;
 const libraryPath = path.resolve(process.cwd(), config.libraryPath);
-const globby = require('globby');
 
 const kebab2Camel = (name) => name.replace(/(?:^|-)([a-z])/g, (m, $1) => $1.toUpperCase());
 
 // 生成routes，通过字符串拼接的形式
 module.exports = function (content) {
     this.cacheable();
+    // 动态监听目录变化
+    this.addContextDependency(libraryPath);
 
     const filepaths = globby.sync(['*/README.md'], { cwd: libraryPath });
     const routes = filepaths.map((filepath) => {
