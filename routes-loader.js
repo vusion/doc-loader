@@ -12,7 +12,7 @@ module.exports = function (content) {
     // 动态监听目录变化
     this.addContextDependency(libraryPath);
 
-    const filepaths = globby.sync(['*/README.md'], { cwd: libraryPath });
+    const filepaths = globby.sync(['*.vue/README.md'], { cwd: libraryPath });
     const routes = filepaths.map((filepath) => {
         const vueName = filepath.slice(0, -14);
         const markdownPath = path.resolve(libraryPath, filepath);
@@ -21,6 +21,11 @@ module.exports = function (content) {
             path: markdownPath.replace(/\\/g, '/'),
         };
     });
+
+    if (config.baseCSSPath) {
+        const baseCSSPath = path.resolve(process.cwd(), config.baseCSSPath);
+        content = `import '${baseCSSPath}';\n` + content;
+    }
 
     return content.replace('/* Insert routes here */', routes.map((route) => {
         const meta = {

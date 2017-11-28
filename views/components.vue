@@ -2,7 +2,7 @@
     <div>
         <div :class="$style.side">
             <u-sidebar size="small">
-                <u-sidebar-item exact v-for="component in components" v-if="component.path" :to="'/components/'+component.path">
+                <u-sidebar-item exact v-for="component in components" :key="component.path" v-if="component.path" :to="'/components/'+component.path">
                     <small>{{ component.meta.name }}</small>
                 </u-sidebar-item>
             </u-sidebar>
