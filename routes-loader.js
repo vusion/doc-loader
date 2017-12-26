@@ -23,7 +23,8 @@ module.exports = function (content) {
     });
 
     if (config.baseCSSPath) {
-        const baseCSSPath = path.resolve(process.cwd(), config.baseCSSPath);
+        let baseCSSPath = path.resolve(process.cwd(), config.baseCSSPath);
+        baseCSSPath = baseCSSPath.replace(/\\/g, '/');
         content = `import '${baseCSSPath}';\n` + content;
     }
 
