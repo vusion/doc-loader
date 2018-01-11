@@ -5,7 +5,7 @@ const path = require('path');
 const caches = {};
 
 const vusionDocLoader = function (content) {
-    // this.cacheable();
+    this.cacheable();
 
     const jsPath = this.resourcePath;
     const vuePath = path.dirname(this.resourcePath);
@@ -13,22 +13,14 @@ const vusionDocLoader = function (content) {
     const vueDir = path.dirname(vuePath);
     const markdownPath = path.join(vuePath, 'README.md');
 
-    if (caches[vueName] && caches[vueName] !== vuePath)
-        return content;
-    else
-        caches[vueName] = vuePath;
-
     this.addDependency(markdownPath);
     if (!fs.existsSync(markdownPath))
         return content;
 
-    const callback = this.async();
+    if (!caches[vueName])
+        caches[vueName] = markdownPath;
 
-    fs.readFile(markdownPath, 'utf8', (err, markdown) => {
-        if (err)
-            return callback(err);
-        callback(null, content);
-    });
+    return content;
 };
 
 vusionDocLoader.caches = caches;

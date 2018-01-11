@@ -31,11 +31,10 @@
     "u-router-item.vue": "^0.1.0",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.2.4",
-    "vusion-utils": "^0.1.0",
-    "vusion-vue-loader": "^14.0.0"
+    "vusion-utils": "^0.1.0"
   },
   "devDependencies": {
-    "eslint": "^4.3.0",
-    "eslint-config-vusion": "^1.2.0"
+    "eslint": "^4.13.1",
+    "eslint-config-vusion": "^2.0.0"
   }
 }
