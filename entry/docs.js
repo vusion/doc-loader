@@ -39,7 +39,6 @@ import routes from '../routes-loader!./routes';
 new Vue({
     router: new VueRouter({
         base: window.base,
-        mode: 'history',
         routes,
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },
     }),
