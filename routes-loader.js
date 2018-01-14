@@ -45,6 +45,10 @@ module.exports = function (content) {
     if (config.baseCSSPath) {
         let baseCSSPath = path.resolve(process.cwd(), config.baseCSSPath);
         baseCSSPath = baseCSSPath.replace(/\\/g, '/');
+        if (!fs.existsSync(baseCSSPath))
+            baseCSSPath = path.join(path.dirname(baseCSSPath), 'base.css');
+        if (!fs.existsSync(baseCSSPath))
+            baseCSSPath = path.join(path.dirname(baseCSSPath), 'index.css');
         content = `import '${baseCSSPath}';\n` + content;
     }
 
