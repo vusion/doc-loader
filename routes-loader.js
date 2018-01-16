@@ -19,6 +19,11 @@ module.exports = function (content) {
     // 所有有文档的组件
     Object.keys(VusionDocLoader.caches).forEach((vueName) => {
         const markdownPath = VusionDocLoader.caches[vueName].replace(/\\/g, '/');
+        if (!fs.existsSync(markdownPath)) {
+            delete VusionDocLoader.caches[vueName];
+            return;
+        }
+
         components[vueName] = {
             name: vueName,
             path: markdownPath,
