@@ -2,12 +2,12 @@
 <div>
     <div :class="$style.side">
         <u-sidebar size="small">
-            <u-sidebar-group title="项目中">
+            <u-sidebar-group title="项目库">
                 <u-sidebar-item exact v-for="component in components" :key="component.path" v-if="component.path && component.meta.inProject" :to="'/components/'+component.path">
                     <small>{{ component.meta.name }}</small>
                 </u-sidebar-item>
             </u-sidebar-group>
-            <u-sidebar-group title="其它库">
+            <u-sidebar-group title="依赖库">
                 <u-sidebar-item exact v-for="component in components" :key="component.path" v-if="component.path && !component.meta.inProject" :to="'/components/'+component.path">
                     <small>{{ component.meta.name }}</small>
                 </u-sidebar-item>
