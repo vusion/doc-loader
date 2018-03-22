@@ -22,6 +22,9 @@
     "loader"
   ],
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "enhanced-resolve": "^4.0.0",
     "globby": "^6.1.0",
     "highlight.js": "^9.10.0",
     "markdown-it": "^8.3.1",
