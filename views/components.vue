@@ -7,11 +7,11 @@
                     <small>{{ component.meta.name }}</small>
                 </u-sidebar-item>
             </u-sidebar-group>
-            <u-sidebar-group title="依赖库">
+            <!-- <u-sidebar-group title="依赖库">
                 <u-sidebar-item exact v-for="component in components" :key="component.path" v-if="component.path && !component.meta.inProject" :to="'/components/'+component.path">
                     <small>{{ component.meta.name }}</small>
                 </u-sidebar-item>
-            </u-sidebar-group>
+            </u-sidebar-group> -->
         </u-sidebar>
     </div>
     <div :class="$style.main">

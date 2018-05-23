@@ -7,7 +7,7 @@ const libraryPath = path.resolve(process.cwd(), config.libraryPath);
 
 const kebab2Camel = (name) => name.replace(/(?:^|-)([a-z])/g, (m, $1) => $1.toUpperCase());
 
-const VusionDocLoader = require('./index');
+// const VusionDocLoader = require('./index');
 
 // 生成routes，通过字符串拼接的形式
 module.exports = function (content) {
@@ -17,19 +17,20 @@ module.exports = function (content) {
 
     const components = {};
     // 所有有文档的组件
-    Object.keys(VusionDocLoader.caches).forEach((vueName) => {
-        const markdownPath = VusionDocLoader.caches[vueName].replace(/\\/g, '/');
-        if (!fs.existsSync(markdownPath)) {
-            delete VusionDocLoader.caches[vueName];
-            return;
-        }
+    // Object.keys(VusionDocLoader.caches).forEach((vueName) => {
+    //     const markdownPath = VusionDocLoader.caches[vueName].replace(/\\/g, '/');
+    //     if (!fs.existsSync(markdownPath)) {
+    //         delete VusionDocLoader.caches[vueName];
+    //         return;
+    //     }
 
-        components[vueName] = {
-            name: vueName,
-            path: markdownPath,
-            inProject: false,
-        };
-    });
+    //     components[vueName] = {
+    //         name: vueName,
+    //         path: markdownPath,
+    //         inProject: false,
+    //     };
+    // });
+
     // 目录中的组件
     globby.sync(['*.vue'], { cwd: libraryPath })
         .forEach((filePath) => {
@@ -50,6 +51,8 @@ module.exports = function (content) {
     if (config.baseCSSPath) {
         let baseCSSPath = path.resolve(process.cwd(), config.baseCSSPath);
         baseCSSPath = baseCSSPath.replace(/\\/g, '/');
+        if (!fs.existsSync(baseCSSPath))
+            baseCSSPath = '../components/base/base.css';
         content = `import '${baseCSSPath}';\n` + content;
     }
 

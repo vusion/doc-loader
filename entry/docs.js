@@ -1,35 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import * as Library from 'library';
+import * as Cmpts from '../components';
 import { installComponents } from 'vusion-utils';
 Vue.use(VueRouter);
 
-import GlobalLayout from '../common/u-global-layout.vue';
-import Article from '../common/u-article.vue';
-import Logo from '../common/u-logo.vue';
-import Navbar from '../common/u-navbar.vue';
-import NavbarItem from '../common/u-navbar-item.vue';
-import Sidebar from '../common/u-sidebar.vue';
-import SidebarGroup from '../common/u-sidebar-group.vue';
-import SidebarItem from '../common/u-sidebar-item.vue';
-import SidebarMenu from '../common/u-sidebar-menu.vue';
-// import ThemeSelect from '../common/u-theme-select.vue';
-// import ThemeSelectItem from '../common/u-theme-select-item.vue';
-import '../common/atom-one-light.css';
-
-const Components = Object.assign({
-    GlobalLayout,
-    Article,
-    Logo,
-    Navbar,
-    NavbarItem,
-    Sidebar,
-    SidebarGroup,
-    SidebarItem,
-    SidebarMenu,
-    // ThemeSelect,
-    // ThemeSelectItem,
-}, Library);
+const Components = Object.assign({}, Cmpts, Library);
 
 installComponents(Components, Vue);
 

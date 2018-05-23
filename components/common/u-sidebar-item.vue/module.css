@@ -10,11 +10,13 @@
 }
 
 .root:hover {
+    color: #1ca67d; /* fallback */
     color: $brand-primary;
     /*background-color: $hover-color;*/
 }
 
 .root[selected] {
+    background-color: #1ca67d; /* fallback */
     background-color: $brand-primary;
-    color: #fff;
+    color: white;
 }
