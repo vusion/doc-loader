@@ -21,6 +21,7 @@ export default {
 }
 
 .root > h1 {
+    margin-bottom: 60px;
     font-size: 24px;
     line-height: 30px;
 }
@@ -82,7 +83,7 @@ export default {
 }
 
 .root > blockquote {
-    margin: 0;
+    margin: 1em 0;
     padding: 4px 16px;
     background: #fafafa;
     border-left: 4px solid #eee;

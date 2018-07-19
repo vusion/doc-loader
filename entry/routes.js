@@ -7,10 +7,8 @@ export default [
     { path: '/', component: Layout, children: [
         { path: '', component: Index, redirect: '/components' },
         { path: 'components', component: Components, children: [
-            // { path: '', redirect: 'u-link' },
             /* Insert routes here */
         ] },
     ] },
     { path: '*', redirect: '/components' },
 ];
-

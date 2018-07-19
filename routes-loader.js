@@ -56,7 +56,14 @@ module.exports = function (content) {
         content = `import '${baseCSSPath}';\n` + content;
     }
 
-    return content.replace('/* Insert routes here */', Object.keys(components).map((vueName) => {
+    const vueNames = Object.keys(components);
+    if (!vueNames.length)
+        return;
+
+    return content.replace('/* Insert routes here */', [
+        // 自动跳转到第一个
+        `{ path: '', redirect: '${components[vueNames[0]].name}' }`,
+    ].concat(vueNames.map((vueName) => {
         const component = components[vueName];
 
         const meta = {
@@ -64,5 +71,5 @@ module.exports = function (content) {
             inProject: component.inProject,
         };
         return `{ path: '${component.name}', component: () => import('${component.path}'), meta: ${JSON.stringify(meta)} }`;
-    }).join(',\n'));
+    })).join(',\n'));
 };
