@@ -27,7 +27,6 @@ module.exports = function (content) {
     //     components[vueName] = {
     //         name: vueName,
     //         path: markdownPath,
-    //         inProject: false,
     //     };
     // });
 
@@ -37,13 +36,16 @@ module.exports = function (content) {
             const vueName = filePath.slice(0, -4);
             const markdownPath = path.resolve(libraryPath, filePath + '/README.md').replace(/\\/g, '/');
             if (!fs.existsSync(markdownPath)) {
-                if (components[vueName])
-                    components[vueName].inProject = true;
+                const depMarkdownPath = path.resolve(process.cwd(), 'node_modules/proto-ui.vusion/src/' + vueName + '.vue/README.md').replace(/\\/g, '/');
+                if (fs.existsSync(depMarkdownPath))
+                    components[vueName] = {
+                        name: vueName,
+                        path: depMarkdownPath,
+                    };
             } else {
                 components[vueName] = {
                     name: vueName,
                     path: markdownPath,
-                    inProject: true,
                 };
             }
         });
@@ -68,7 +70,6 @@ module.exports = function (content) {
 
         const meta = {
             name: kebab2Camel(vueName.slice(2)),
-            inProject: component.inProject,
         };
         return `{ path: '${component.name}', component: () => import('${component.path}'), meta: ${JSON.stringify(meta)} }`;
     })).join(',\n'));
