@@ -1,12 +1,12 @@
 {
-  "name": "vusion-doc-loader",
+  "name": "@vusion/doc-loader",
   "description": "Webpack loader to generate Vusion component docs.",
   "version": "0.6.1",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
-  "repository": "vusion/vusion-doc-loader",
+  "repository": "vusion/doc-loader",
   "bugs": {
-    "url": "http://github.com/vusion/vusion-doc-loader/issues"
+    "url": "http://github.com/vusion/doc-loader/issues"
   },
   "license": "MIT",
   "keywords": [
@@ -34,7 +34,7 @@
     "vusion-utils": "^0.1.0"
   },
   "devDependencies": {
-    "eslint": "^4.13.1",
-    "eslint-config-vusion": "^2.0.0"
+    "eslint": "^4.19.1",
+    "eslint-config-vusion": "^2.1.1"
   }
 }

@@ -9,7 +9,7 @@ const Components = Object.assign({}, Cmpts, Library);
 
 installComponents(Components, Vue);
 
-// 使用vusion-doc-loader 中的routes-loader 解析routes文件 得到想要的内容
+// 使用 routes-loader 解析 routes 文件
 import routes from '../routes-loader!./routes';
 
 new Vue({
