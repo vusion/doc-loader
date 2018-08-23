@@ -19,7 +19,6 @@
 import groups from '../lib/auto-loader!./routes?components';
 export default {
     data() {
-        console.log(groups);
         return { groups };
     },
 };

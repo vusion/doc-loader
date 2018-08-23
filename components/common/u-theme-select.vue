@@ -8,7 +8,7 @@ export default {
 </script>
 
 <style module>
-@import '../../src/u-select.vue/module.css';
+@import './u-select.vue/module.css';
 
 .root {
     height: 64px;

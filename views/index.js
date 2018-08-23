@@ -1,13 +1,30 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import * as Library from 'library';
-import * as Cmpts from '../components';
 import { installComponents } from 'vusion-utils';
 Vue.use(VueRouter);
 
-const Components = Object.assign({}, Cmpts, Library);
+// 自动注册本地组件
+const requires = require.context('../components/', true, /\.vue$/);
+requires.keys().forEach((key) => {
+    if (key.indexOf('.vue') !== key.lastIndexOf('.vue'))
+        return;
+    const name = requires(key).default.name || key.slice(key.lastIndexOf('/') + 1, key.lastIndexOf('.'));
+    Vue.component(name, requires(key).default);
+});
 
-installComponents(Components, Vue);
+installComponents(Library, Vue);
+
+/* eslint-disable no-undef */
+if (DOCS_COMPONENTS_PATH) {
+    const requires2 = require.context(DOCS_COMPONENTS_PATH, true, /\.vue$/);
+    requires2.keys().forEach((key) => {
+        if (key.indexOf('.vue') !== key.lastIndexOf('.vue'))
+            return;
+        const name = requires2(key).default.name || key.slice(key.lastIndexOf('/') + 1, key.lastIndexOf('.'));
+        Vue.component(name, requires2(key).default);
+    });
+}
 
 // 使用 routes-loader 解析 routes 文件
 import routes from '../lib/auto-loader!./routes';

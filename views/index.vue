@@ -1,18 +1,6 @@
 <template>
 <div :class="$style.root">
-    <header :class="$style.head">
-        <div :class="$style.wrap">
-            <u-navbar slot="head">
-                <u-logo slot="left"></u-logo>
-                <u-navbar-item to="/components">组件</u-navbar-item>
-                <!-- <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">
-                    <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
-                    <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
-                    <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
-                </u-theme-select> -->
-            </u-navbar>
-        </div>
-    </header>
+    <the-header></the-header>
     <main :class="$style.body">
         <div :class="$style.wrap">
             <router-view></router-view>
@@ -45,17 +33,6 @@ export default {
 </script>
 
 <style module>
-.head {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 64px;
-    background: #fff;
-    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
-    z-index: 20;
-}
-
 .body {
     /* min-height: calc(100vh - 134px); */
     margin-top: 64px;
