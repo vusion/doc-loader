@@ -7,10 +7,8 @@ const caches = {};
 const vusionDocLoader = function (content) {
     this.cacheable();
 
-    const jsPath = this.resourcePath;
     const vuePath = path.dirname(this.resourcePath);
     const vueName = path.basename(vuePath, '.vue');
-    const vueDir = path.dirname(vuePath);
     const markdownPath = path.join(vuePath, 'README.md');
 
     this.addDependency(markdownPath);

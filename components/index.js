@@ -1,4 +1,3 @@
-export { default as GlobalLayout } from '../components/common/u-global-layout.vue';
 export { default as Article } from '../components/common/u-article.vue';
 export { default as Logo } from '../components/common/u-logo.vue';
 export { default as Navbar } from '../components/common/u-navbar.vue';

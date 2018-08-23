@@ -10,7 +10,7 @@ const Components = Object.assign({}, Cmpts, Library);
 installComponents(Components, Vue);
 
 // 使用 routes-loader 解析 routes 文件
-import routes from '../routes-loader!./routes';
+import routes from '../lib/auto-loader!./routes';
 
 new Vue({
     router: new VueRouter({

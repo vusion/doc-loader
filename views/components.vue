@@ -2,9 +2,11 @@
 <div>
     <div :class="$style.side">
         <u-sidebar size="small">
-            <u-sidebar-item exact v-for="component in components" :key="component.path" v-if="component.path" :to="'/components/'+component.path">
-                <small>{{ component.meta.name }}</small>
-            </u-sidebar-item>
+            <u-sidebar-group v-for="group in groups" :key="group.name" :title="group.name">
+                <u-sidebar-item v-for="component in group.children" :key="component.name" exact :to="'/components/'+component.name">
+                    {{ component.alias }} <small>{{ component.CamelName }}</small>
+                </u-sidebar-item>
+            </u-sidebar-group>
         </u-sidebar>
     </div>
     <div :class="$style.main">
@@ -14,11 +16,11 @@
 </template>
 
 <script>
-import routes from '../routes-loader!../entry/routes';
+import groups from '../lib/auto-loader!./routes?components';
 export default {
     data() {
-        const components = routes[0].children[1].children;
-        return { components };
+        console.log(groups);
+        return { groups };
     },
 };
 </script>

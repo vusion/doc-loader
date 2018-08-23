@@ -24,6 +24,7 @@
   "dependencies": {
     "globby": "^6.1.0",
     "highlight.js": "^9.10.0",
+    "loader-utils": "^1.1.0",
     "markdown-it": "^8.3.1",
     "u-emitter.vue": "^0.1.1",
     "u-list-view-item.vue": "^0.2.6",
@@ -31,10 +32,10 @@
     "u-router-item.vue": "^0.1.0",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.2.4",
-    "vusion-utils": "^0.1.0"
+    "vusion-utils": "^0.2.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-config-vusion": "^2.1.1"
+    "eslint-config-vusion": "^2.1.2"
   }
 }
