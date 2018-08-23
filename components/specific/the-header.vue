@@ -3,7 +3,7 @@
     <div :class="$style.wrap">
         <u-navbar>
             <the-logo slot="left"></the-logo>
-            <u-navbar-item to="/components">组件</u-navbar-item>
+            <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
         </u-navbar>
     </div>
 </header>
@@ -11,6 +11,9 @@
 <script>
 export default {
     name: 'the-header',
+    data() {
+        return { navbar: this.$docs.navbar };
+    },
 };
 </script>
 <style module>

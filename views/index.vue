@@ -6,11 +6,6 @@
             <router-view></router-view>
         </div>
     </main>
-    <!-- <footer :class="$style.foot">
-        <div :class="$style.wrap">
-            <slot name="foot"></slot>
-        </div>
-    </footer> -->
 </div>
 </template>
 

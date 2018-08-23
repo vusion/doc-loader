@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: 'u-example',
+    name: 'u-code-example',
     data() {
         return {
             expanded: false,

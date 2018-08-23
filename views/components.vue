@@ -16,10 +16,9 @@
 </template>
 
 <script>
-import groups from '../lib/auto-loader!./routes?components';
 export default {
     data() {
-        return { groups };
+        return { groups: this.$docs.componentGroups };
     },
 };
 </script>

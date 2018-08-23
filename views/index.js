@@ -27,12 +27,13 @@ if (DOCS_COMPONENTS_PATH) {
 }
 
 // 使用 routes-loader 解析 routes 文件
-import routes from '../lib/auto-loader!./routes';
+import $docs from '../lib/auto-loader!./empty';
+Vue.prototype.$docs = $docs;
 
 new Vue({
     router: new VueRouter({
-        base: window.base,
-        routes,
+        base: $docs.base,
+        routes: $docs.routes,
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },
     }),
 }).$mount('#app');
