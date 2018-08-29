@@ -34,6 +34,8 @@ if (DOCS_COMPONENTS_PATH) {
 import $docs from '../lib/auto-loader!./empty';
 Vue.prototype.$docs = $docs;
 
+document.title = $docs.title || 'Vusion 组件库';
+
 new Vue({
     router: new VueRouter({
         mode: $docs.mode,
