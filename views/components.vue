@@ -1,7 +1,7 @@
 <template>
-<div>
+<div :class="$style.root">
     <div :class="$style.side">
-        <u-sidebar size="small">
+        <u-sidebar :class="$style.sidebar">
             <u-sidebar-group v-for="group in groups" :key="group.name" :title="group.name">
                 <u-sidebar-item v-for="component in group.children" :key="component.name" exact :to="'/components/'+component.name">
                     {{ component.alias }} <small>{{ component.CamelName }}</small>
@@ -25,18 +25,29 @@ export default {
 
 <style module>
 .side {
-    padding: 20px 0;
     position: fixed;
-    width: 200px;
-    top: 64px;
+    width: $sidebar-width;
+    top: $navbar-height;
     bottom: 0;
-    /* height: calc(100vh - 134px); */
-    background: #f0f6fa;
-    overflow: auto;
+    overflow: hidden;
 }
 
+.sidebar {
+    padding: 36px 0;
+    height: 100%;
+    overflow: auto;
+    /* width: calc($sidebar-width + 8px); */
+}
+
+/* .sidebar > * {
+    width: $sidebar-width;
+} */
+
 .main {
-    margin-left: 200px;
-    padding: 40px;
+    margin-left: $sidebar-width;
+    max-width: 1010px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-top: 30px;
 }
 </style>

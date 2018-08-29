@@ -21,7 +21,6 @@ export default {
 }
 
 .root > h1 {
-    margin-bottom: 60px;
     font-size: 24px;
     line-height: 30px;
 }
@@ -29,31 +28,23 @@ export default {
 .root > h2 {
     font-size: 20px;
     padding: 0 60px;
-    margin: 80px -60px 10px;
-    color: #666;
+    margin: 80px -60px 40px;
 }
 
 .root > h3 {
     font-size: 16px;
-    margin: 40px -60px 30px;
-    border-top: 1px solid #f4f4f4;
-    padding-top: 30px;
+    margin: 40px -60px 20px;
     padding-left: 60px;
     color: $brand-primary;
-}
-
-.root > h2 + h3 {
-    margin-top: 10px;
 }
 
 .root > h4 {
     font-size: 14px;
     margin: 25px 0 10px;
     margin-left: -9px;
-
 }
 
-.root  > h4:before {
+.root > h4::before {
     content: '';
     margin-right: 6px;
     display: inline-block;
@@ -65,7 +56,7 @@ export default {
 
 .root > h5 {
     font-size: 12px;
-    margin: .3em 0;
+    margin: 0.3em 0;
 }
 
 .root > ul {
@@ -83,7 +74,7 @@ export default {
 }
 
 .root > blockquote {
-    margin: 1em 0;
+    margin: 0;
     padding: 4px 16px;
     background: #fafafa;
     border-left: 4px solid #eee;
@@ -111,15 +102,16 @@ export default {
     padding: 0 3px;
     font-size: 12px;
     background: #fafafa;
-    color: #d05;
+    color: #e0276e;
 }
 
+/* stylelint-disable-next-line */
 .root pre {
     padding: 6px 12px;
     font-size: 12px;
-    background: #fafafa;
+    /* background: #fafafa; */
     color: #333;
-    border: 1px solid #eee;
+    /* border: 1px solid #eee; */
     border-radius: $border-radius-base;
 }
 
@@ -133,7 +125,7 @@ export default {
 }
 
 .root > blockquote h6 {
-    margin: .5em 0 .3em;
+    margin: 0.5em 0 0.3em;
     text-indent: 2em;
     color: #e74c3c;
 }
@@ -151,6 +143,6 @@ export default {
 }
 
 .root > table img {
-    max-width:none;
+    max-width: none;
 }
 </style>

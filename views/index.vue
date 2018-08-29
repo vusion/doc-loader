@@ -1,6 +1,13 @@
 <template>
 <div :class="$style.root">
-    <the-header></the-header>
+    <header :class="$style.head">
+        <div :class="$style.wrap">
+            <u-navbar>
+                <u-logo slot="left"></u-logo>
+                <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
+            </u-navbar>
+        </div>
+    </header>
     <main :class="$style.body">
         <div :class="$style.wrap">
             <router-view></router-view>
@@ -13,6 +20,7 @@
 export default {
     data() {
         return {
+            navbar: this.$docs.navbar,
             theme: window.theme,
         };
     },
@@ -28,9 +36,23 @@ export default {
 </script>
 
 <style module>
+.root {}
+
+.head {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: $navbar-height;
+    /* background: #1c2b41; */
+    background: white;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+    z-index: $z-index-layout;
+}
+
 .body {
     /* min-height: calc(100vh - 134px); */
-    margin-top: 64px;
+    margin-top: $navbar-height;
 }
 
 .foot {
@@ -39,16 +61,8 @@ export default {
 }
 
 .wrap {
-    width: 1180px;
-    margin: 0 auto;
-}
-
-.foot {
-    line-height: 70px;
-    background: #34383b;
-    text-align: center;
-    font-size: 14px;
-    color: gray;
+    /* width: 1180px;
+    margin: 0 auto; */
 }
 
 .color {

@@ -1,23 +1,3 @@
-/*
-
-Atom One Light by Daniel Gamage
-Original One Light Syntax theme from https://github.com/atom/one-light-syntax
-
-base:    #fafafa
-mono-1:  #383a42
-mono-2:  #686b77
-mono-3:  #a0a1a7
-hue-1:   #0184bb
-hue-2:   #4078f2
-hue-3:   #a626a4
-hue-4:   #50a14f
-hue-5:   #e45649
-hue-5-2: #c91243
-hue-6:   #986801
-hue-6-2: #c18401
-
-*/
-
 .hljs {
   display: block;
   overflow-x: auto;
@@ -43,11 +23,7 @@ hue-6-2: #c18401
 .hljs-selector-tag,
 .hljs-deletion,
 .hljs-subst {
-  color: #e45649;
-}
-
-.hljs-literal {
-  color: #0184bb;
+  color: #e68617;
 }
 
 .hljs-string,
@@ -59,8 +35,10 @@ hue-6-2: #c18401
 }
 
 .hljs-built_in,
-.hljs-class .hljs-title {
-  color: #c18401;
+.hljs-class .hljs-title,
+.hljs-number,
+.hljs-literal {
+  color: #e0276e;
 }
 
 .hljs-attr,
@@ -69,9 +47,8 @@ hue-6-2: #c18401
 .hljs-type,
 .hljs-selector-class,
 .hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
-  color: #986801;
+.hljs-selector-pseudo {
+  color: #457cd0;
 }
 
 .hljs-symbol,

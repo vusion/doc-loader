@@ -1,8 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import * as ProtoUI from 'proto-ui.vusion';
 import * as Library from 'library';
-import { installComponents } from 'vusion-utils';
+import { install } from 'vusion-utils';
 Vue.use(VueRouter);
+
+import 'baseCSS';
 
 // 自动注册本地组件
 const requires = require.context('../components/', true, /\.vue$/);
@@ -13,7 +16,8 @@ requires.keys().forEach((key) => {
     Vue.component(name, requires(key).default);
 });
 
-installComponents(Library, Vue);
+install(ProtoUI, Vue);
+install(Library, Vue);
 
 /* eslint-disable no-undef */
 if (DOCS_COMPONENTS_PATH) {
@@ -32,6 +36,7 @@ Vue.prototype.$docs = $docs;
 
 new Vue({
     router: new VueRouter({
+        mode: $docs.mode,
         base: $docs.base,
         routes: $docs.routes,
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },
