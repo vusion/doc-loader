@@ -3,7 +3,7 @@
     <header :class="$style.head">
         <div :class="$style.wrap">
             <u-navbar>
-                <u-logo slot="left"></u-logo>
+                <u-logo slot="left">{{ logo }}</u-logo>
                 <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
             </u-navbar>
         </div>
@@ -20,6 +20,7 @@
 export default {
     data() {
         return {
+            logo: this.$docs.logo,
             navbar: this.$docs.navbar,
             theme: window.theme,
         };
