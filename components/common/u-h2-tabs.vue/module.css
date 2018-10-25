@@ -1,0 +1,35 @@
+@extend 'proto-ui.vusion/src/u-tabs.vue/module.css';
+
+.root {}
+
+.head {
+    height: 38px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 0 20px;
+}
+
+.item {
+    height: 35px;
+    line-height: 35px;
+    padding: 0 28px;
+    border-radius: 2px 2px 0 0;
+    margin-right: 4px;
+    color: #a7afbb;
+}
+
+.item[selected] {
+    color: #6a6f75;
+    border-top: 2px solid $brand-primary;
+}
+
+.body {
+    margin: 0;
+}
+
+.root + p > article > h2:first-of-type {
+    margin-top: 20px;
+}

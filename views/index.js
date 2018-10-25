@@ -33,6 +33,7 @@ if (DOCS_COMPONENTS_PATH) {
 // 使用 routes-loader 解析 routes 文件
 import $docs from '../lib/auto-loader!./empty';
 Vue.prototype.$docs = $docs;
+Vue.prototype.NODE_ENV = process.env.NODE_ENV;
 
 document.title = $docs.title || 'Vusion 组件库';
 
