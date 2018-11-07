@@ -31,7 +31,7 @@
     "proto-ui.vusion": "^0.3.27",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.2.4",
-    "vusion-utils": "^0.2.0"
+    "vusion-utils": "^0.2.2"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
