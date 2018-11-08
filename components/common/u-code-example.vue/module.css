@@ -14,7 +14,7 @@ $transition-duration-base: 0.2s;
 .head {
     position: relative;
     height: 29px;
-    border-bottom: 1px solid $border-color-base;
+    border-top: 1px solid $border-color-base;
 }
 
 .title {
@@ -37,7 +37,7 @@ $transition-duration-base: 0.2s;
     height: 28px;
     text-align: center;
     color: #a7afbb;
-    line-height: 26px;
+    line-height: 28px;
     transition: color $transition-duration-base;
     cursor: $cursor-pointer;
 }
@@ -58,9 +58,10 @@ $transition-duration-base: 0.2s;
 .toolbar-item[name="code"]::before { icon-font: url('./assets/code.svg'); }
 .toolbar-item[name="data"]::before { icon-font: url('./assets/data.svg'); }
 .toolbar-item[name="log"]::before { icon-font: url('./assets/log.svg'); }
+.toolbar-item[name="clear"]::before { icon-font: url('./assets/clear.svg'); }
 .toolbar-item[name="copy"]::before { icon-font: url('./assets/copy.svg'); vertical-align: -3px; font-size: 19px; }
 .toolbar-item[name="edit"]::before { icon-font: url('./assets/edit.svg'); }
-.toolbar-item[name="github"]::before { icon-font: url('./assets/github.svg'); vertical-align: -2px; font-size: 16px; }
+.toolbar-item[name="github"]::before { icon-font: url('./assets/github.svg'); vertical-align: -1px; font-size: 16px; }
 .toolbar-item[name="codepen"]::before { icon-font: url('./assets/codepen.svg'); vertical-align: -2px; font-size: 18px; }
 .toolbar-item[name="jsfiddle"]::before { icon-font: url('./assets/jsfiddle.svg'); vertical-align: -3px; font-size: 19px; }
 .toolbar-item[name="share"]::before { icon-font: url('./assets/share.svg'); }
@@ -74,28 +75,29 @@ $transition-duration-base: 0.2s;
     vertical-align: top;
 }
 
-.example {
+.demo {
     padding: 20px;
 }
 
-.body {}
+.body {
+    border-top: 1px solid $border-color-base;
+    transition: $transition-duration-base height ease-in-out, $transition-duration-base padding-top ease-in-out, $transition-duration-base padding-bottom ease-in-out;
+}
 
 .data {
     vertical-align: top;
     display: inline-block;
     width: 50%;
-    height: 200px;
+    height: 100px;
     overflow: auto;
-    border-top: 1px solid $border-color-base;
 }
 
 .log {
     vertical-align: top;
     display: inline-block;
     width: 50%;
-    height: 200px;
+    height: 100px;
     overflow: auto;
-    border-top: 1px solid $border-color-base;
     border-left: 1px solid $border-color-base;
 }
 
@@ -113,34 +115,19 @@ $transition-duration-base: 0.2s;
     display: none;
 }
 
-.expander {
-    display: none;
-    border-top: 1px solid $border-color-base;
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px;
-    cursor: pointer;
+.logs[class] {
+    border: none;
+    font-size: 12px;
+    line-height: 20px;
+    /* height: 100%;
+    overflow: auto; */
 }
 
-.expander:hover {
-    background: #e9eef5;
+.logs-item[class] {
+    padding: 0 4px;
+    cursor: default;
 }
 
-.expander::before {
-    content: '';
-    display: inline-block;
-    position: relative;
-    border: 5px solid transparent;
-    border-left-width: 4px;
-    border-right-width: 4px;
-    border-top-color: currentColor;
-    bottom: -3px;
-    right: 4px;
-}
-
-.expander[expanded]::before {
-    border-top-color: transparent;
-    border-bottom-color: currentColor;
-    top: -3px;
-    bottom: 0;
+.logs-event {
+    font-weight: bold;
 }

@@ -3,6 +3,7 @@ import '../atom-one-light.css';
 export default {
     name: 'u-code-example',
     props: {
+        title: { type: String, default: 'EXAMPLE' },
         showCode: { type: Boolean, default: false },
         showDetail: { type: Boolean, default: false },
         disableDetail: { type: Boolean, default: false },
@@ -24,6 +25,8 @@ export default {
             currentShowCode: this.showCode,
             currentShowDetail: this.showDetail,
             githubLink: baseLink ? baseLink + '/' + this.filePath : false,
+            anondemoData: {},
+            logs: [],
         };
     },
     watch: {
@@ -40,10 +43,28 @@ export default {
             this.$emit('update:showCode', this.currentShowCode);
         },
         toggleShowDetail() {
-            if (this.disableDetail)
-                return;
+            // if (this.disableDetail)
+            //     return;
             this.currentShowDetail = !this.currentShowDetail;
             this.$emit('update:showDetail', this.currentShowDetail);
+        },
+        logEvent(vm, eventName, payload) {
+            if (!this.currentShowDetail)
+                return;
+
+            if (this.logs.length >= 100)
+                this.logs.shift();
+            this.logs.push({
+                type: 'event',
+                eventName,
+                sender: vm.$options.name,
+            });
+            this.$nextTick(() => {
+                this.$refs.log.scrollTop = this.$refs.log.scrollHeight;
+            });
+        },
+        clearLogs() {
+            this.logs = [];
         },
     },
 };
