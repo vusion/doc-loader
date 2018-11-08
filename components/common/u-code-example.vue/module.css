@@ -118,6 +118,7 @@ $transition-duration-base: 0.2s;
 .logs[class] {
     border: none;
     font-size: 12px;
+    font-family: $font-family-code;
     line-height: 20px;
     /* height: 100%;
     overflow: auto; */
@@ -129,5 +130,22 @@ $transition-duration-base: 0.2s;
 }
 
 .logs-event {
-    font-weight: bold;
+    color: #a626a4;
+}
+
+.logs-description {
+    color: #a7afbb;
+}
+
+.logs-tag {
+    color: #e68617;
+}
+
+.logs-time {
+    color: #a7afbb;
+    float: right;
+}
+
+.logs-item[class][selected] > * {
+    color: white;
 }

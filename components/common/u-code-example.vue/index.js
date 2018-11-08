@@ -6,7 +6,7 @@ export default {
         title: { type: String, default: 'EXAMPLE' },
         showCode: { type: Boolean, default: false },
         showDetail: { type: Boolean, default: false },
-        disableDetail: { type: Boolean, default: false },
+        // disableDetail: { type: Boolean, default: false },
         filePath: String,
     },
     data() {
@@ -58,9 +58,10 @@ export default {
                 type: 'event',
                 eventName,
                 sender: vm.$options.name,
+                time: new Date().toTimeString().split(' ')[0],
             });
             this.$nextTick(() => {
-                this.$refs.log.scrollTop = this.$refs.log.scrollHeight;
+                this.$refs.log && (this.$refs.log.scrollTop = this.$refs.log.scrollHeight);
             });
         },
         clearLogs() {
