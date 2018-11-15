@@ -146,6 +146,11 @@ $transition-duration-base: 0.2s;
     float: right;
 }
 
-.logs-item[class][selected] > * {
+.logs-payload-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logs-item[class][selected] * {
     color: white;
 }

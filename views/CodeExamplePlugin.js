@@ -45,9 +45,8 @@ export default {
 
         const oldEmit = Vue.prototype.$emit;
         Vue.prototype.$emit = function (...args) {
-            const ret = oldEmit.apply(this, args);
             logEvent.call(this, args[0], args.slice(1));
-            return ret;
+            return oldEmit.apply(this, args);
         };
     },
 };

@@ -1,4 +1,5 @@
 import '../atom-one-light.css';
+import { formatValue } from '../u-data-view-node.vue/utils';
 
 export default {
     name: 'u-code-example',
@@ -58,6 +59,7 @@ export default {
                 type: 'event',
                 eventName,
                 sender: vm.$options.name,
+                payload: formatValue(payload[0]),
                 time: new Date().toTimeString().split(' ')[0],
             });
             this.$nextTick(() => {

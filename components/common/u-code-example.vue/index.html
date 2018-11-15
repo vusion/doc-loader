@@ -3,15 +3,21 @@
     <u-collapse-transition>
         <div :class="$style.body" v-show="currentShowDetail">
             <div :class="$style.data">
-                <u-data-view readonly :class="$style['logs']" :value="anondemoData"></u-data-view>
+                <u-data-view readonly :class="$style['logs']" :value="anondemoData" :expand-depth="1"></u-data-view>
             </div>
             <div ref="log" :class="$style.log">
                 <u-list-view :class="$style['logs']" cancelable>
                     <u-list-view-item :class="$style['logs-item']" v-for="(log, index) in logs" :key="index">
-                        <span :class="$style['logs-event']">@{{ log.eventName }}</span>
-                        <span :class="$style['logs-description']"> $emitted by </span>
-                        <span :class="$style['logs-tag']">&lt;{{ log.sender }}&gt;</span>
-                        <span :class="$style['logs-time']">{{ log.time }}</span>
+                        <div>
+                            <span :class="$style['logs-tag']">&lt;{{ log.sender }}&gt;</span>
+                            <span :class="$style['logs-description']"> $emit: </span>
+                            <span :class="$style['logs-event']">{{ log.eventName }} </span>
+                            <span :class="$style['logs-time']">{{ log.time }}</span>
+                        </div>
+                        <div :class="$style['logs-payload-line']">
+                            <span :class="$style['logs-description']">$event: </span>
+                            <span :class="$style['logs-payload']" v-ellipsis-title>{{ log.payload }}</span>
+                        </div>
                     </u-list-view-item>
                 </u-list-view>
             </div>

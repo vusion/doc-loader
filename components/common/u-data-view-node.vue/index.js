@@ -25,6 +25,7 @@ export default {
     },
     data() {
         return {
+            depth: 0,
             currentExpanded: this.expanded,
             editing: false,
             currentValue: this.value,
@@ -109,6 +110,9 @@ export default {
         this.$on('add-node-vm', (nodeVM) => {
             nodeVM.rootVM = this.rootVM;
             nodeVM.parentVM = this;
+            nodeVM.depth = this.depth + 1;
+            if (nodeVM.depth <= nodeVM.rootVM.expandDepth)
+                nodeVM.currentExpanded = true;
             this.nodeVMs.push(nodeVM);
         });
         this.$on('remove-node-vm', (nodeVM) => {
