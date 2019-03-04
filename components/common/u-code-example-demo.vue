@@ -2,12 +2,20 @@
 <div><slot></slot></div>
 </template>
 <script>
+import debounce from 'lodash/debounce';
+
 export default {
     name: 'u-code-example-demo',
     data() {
         return {
             anondemoVM: undefined,
         };
+    },
+    created() {
+        this.debouncedFlush = debounce(this.flush, 100, {
+            leading: true,
+            trailing: false,
+        });
     },
     methods: {
         flush() {

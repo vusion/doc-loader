@@ -12,10 +12,10 @@ export default {
                     if (this.$options._componentTag && this.$options._componentTag.startsWith('anondemo-'))
                         codeExampleDemoVM.anondemoVM = this;
                 });
-                this.codeExampleDemoVM && this.codeExampleDemoVM.flush();
+                this.codeExampleDemoVM && this.codeExampleDemoVM.debouncedFlush();
             },
             updated() {
-                this.codeExampleDemoVM && this.codeExampleDemoVM.flush();
+                this.codeExampleDemoVM && this.codeExampleDemoVM.debouncedFlush();
             },
             methods: {
                 $contact(condition, callback) {
@@ -39,8 +39,10 @@ export default {
             const context = this.$vnode.context;
             if (this.codeExampleDemoVM && !eventName.startsWith('hook:')
                 && (context === this.codeExampleDemoVM.$parent.$vnode.context
-                    || (context.$options._componentTag && context.$options._componentTag.startsWith('anondemo-'))))
+                    || (context.$options._componentTag && context.$options._componentTag.startsWith('anondemo-')))) {
                 this.codeExampleDemoVM.logEvent(this, eventName, payload);
+                setTimeout(() => this.codeExampleDemoVM && this.codeExampleDemoVM.debouncedFlush());
+            }
         };
 
         const oldEmit = Vue.prototype.$emit;

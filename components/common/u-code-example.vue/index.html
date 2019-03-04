@@ -28,7 +28,7 @@
         <div :class="$style.toolbar">
             <div :class="$style['toolbar-item']" name="code" v-tooltip.top="currentShowCode ? '隐藏代码' : '显示代码'"
             :checked="currentShowCode" @click="toggleShowCode"></div>
-            <div :class="$style['toolbar-item']" name="copy" v-tooltip.top="'复制代码'"></div>
+            <div :class="$style['toolbar-item']" name="copy" v-tooltip.top="copySucceeded ? '复制成功' : '复制代码'" @click="copyCode"></div>
             <!-- <div :class="$style['toolbar-item']" name="data" v-tooltip.top="showData ? '隐藏数据' : '显示数据'"
                 :checked="showData" @click="showData = !showData"></div> -->
             <div :class="$style['toolbar-divider']"></div>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <u-collapse-transition>
-        <div :class="$style.code" v-show="currentShowCode">
+        <div ref="code" :class="$style.code" v-show="currentShowCode">
             <slot name="code"></slot>
         </div>
     </u-collapse-transition>

@@ -1,5 +1,6 @@
 import '../atom-one-light.css';
 import { formatValue } from '../u-data-view-node.vue/utils';
+import { copy } from 'proto-ui.vusion/src/utils';
 
 export default {
     name: 'u-code-example',
@@ -24,6 +25,7 @@ export default {
 
         return {
             currentShowCode: this.showCode,
+            copySucceeded: false,
             currentShowDetail: this.showDetail,
             githubLink: baseLink ? baseLink + '/' + this.filePath : false,
             anondemoData: {},
@@ -42,6 +44,10 @@ export default {
         toggleShowCode() {
             this.currentShowCode = !this.currentShowCode;
             this.$emit('update:showCode', this.currentShowCode);
+        },
+        copyCode() {
+            this.copySucceeded = copy(this.$refs.code.innerText);
+            setTimeout(() => this.copySucceeded = false, 600);
         },
         toggleShowDetail() {
             // if (this.disableDetail)
