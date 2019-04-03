@@ -32,7 +32,7 @@
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.2.4",
-    "vusion-utils": "^0.2.2"
+    "vusion-utils": "^0.2.4"
   },
   "devDependencies": {
     "eslint": "^5.14.1",

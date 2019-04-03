@@ -2,12 +2,12 @@ const rawTypeRE = /^\[object (\w+)]$/;
 const specialTypeRE = /^\[native \w+ (.*)\]$/;
 
 const isPlainObject = (obj) => Object.prototype.toString.call(obj) === '[object Object]';
-const isPrimitive = (data) => {
-    if (data === null || data === undefined)
-        return true;
-    const type = typeof data;
-    return type === 'string' || type === 'number' || type === 'boolean';
-};
+// const isPrimitive = (data) => {
+//     if (data === null || data === undefined)
+//         return true;
+//     const type = typeof data;
+//     return type === 'string' || type === 'number' || type === 'boolean';
+// };
 
 export const formatValue = (value) => {
     const type = typeof value;

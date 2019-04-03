@@ -14,7 +14,7 @@ export default {
     created() {
         this.debouncedFlush = debounce(this.flush, 100, {
             leading: true,
-            trailing: false,
+            trailing: true,
         });
     },
     methods: {
