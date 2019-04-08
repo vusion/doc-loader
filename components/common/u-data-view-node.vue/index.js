@@ -1,4 +1,4 @@
-import Emitter from 'proto-ui.vusion/src/u-emitter.vue';
+import { MEmitter } from 'proto-ui.vusion';
 import saferEval from 'safer-eval';
 
 const rawTypeRE = /^\[object (\w+)]$/;
@@ -15,7 +15,7 @@ const isPlainObject = (obj) => Object.prototype.toString.call(obj) === '[object 
 export default {
     name: 'u-data-view-node',
     rootName: 'u-data-view',
-    mixins: [Emitter],
+    mixins: [MEmitter],
     props: {
         property: String,
         value: null,

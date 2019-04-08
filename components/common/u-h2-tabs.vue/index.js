@@ -1,7 +1,9 @@
-import Tabs from 'proto-ui.vusion/src/u-tabs.vue';
+import { UTabs } from 'proto-ui.vusion';
 
-export default {
+export const UH2Tabs = {
     name: 'u-h2-tabs',
     childName: 'u-h2-tab',
-    extends: Tabs,
+    extends: UTabs,
 };
+
+export default UH2Tabs;
