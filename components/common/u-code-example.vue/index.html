@@ -1,6 +1,6 @@
 <div :class="$style.root">
     <div :class="$style.demo"><u-code-example-demo><slot></slot></u-code-example-demo></div>
-    <u-collapse-transition>
+    <f-collapse-transition>
         <div :class="$style.body" v-show="currentShowDetail">
             <div :class="$style.data">
                 <u-data-view readonly :class="$style['logs']" :value="anondemoData" :expand-depth="1"></u-data-view>
@@ -22,7 +22,7 @@
                 </u-list-view>
             </div>
         </div>
-    </u-collapse-transition>
+    </f-collapse-transition>
     <div :class="$style.head">
         <!-- <span :class="$style.title">{{ title }}</span> -->
         <div :class="$style.toolbar">
@@ -44,9 +44,9 @@
             <div :class="$style['toolbar-item']" name="share"></div> -->
         </div>
     </div>
-    <u-collapse-transition>
+    <f-collapse-transition>
         <div ref="code" :class="$style.code" v-show="currentShowCode">
             <slot name="code"></slot>
         </div>
-    </u-collapse-transition>
+    </f-collapse-transition>
 </div>
