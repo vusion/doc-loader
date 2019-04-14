@@ -28,10 +28,9 @@
     "highlight.js": "^9.10.0",
     "loader-utils": "^1.1.0",
     "markdown-it": "^8.3.1",
-    "proto-ui.vusion": "^0.4.0-alpha.3",
+    "proto-ui.vusion": "^0.4.0-alpha.4",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
-    "vue-server-renderer": "^2.2.4",
     "vusion-utils": "^0.2.4"
   },
   "devDependencies": {
