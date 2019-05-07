@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-tooltip.top-start="copySucceeded ? '复制成功' : tooltip" @click="onClick" @dblclick="onDblClick">
+<div :class="$style.root" v-tooltip.top="copySucceeded ? '复制成功' : tooltip" @click="onClick" @dblclick="onDblClick">
     <div :class="$style.icon">
         <component :is="icon" :name="name"></component>
         <slot></slot>

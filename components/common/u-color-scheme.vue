@@ -1,16 +1,36 @@
 <template>
-<div :class="$style.root" :style="{ background: value }">
+<div :class="$style.root" :style="{ background: value }"
+     v-tooltip.top="copySucceeded ? '复制成功' : tooltip"
+     @click="onClick" @dblclick="onDblClick">
     <slot></slot>
     <div :class="$style.name">{{ name }}</div>
 </div>
 </template>
 
 <script>
+import { copy } from 'proto-ui.vusion/src/utils';
+
 export default {
     name: 'u-color-scheme',
     props: {
         name: String,
         value: String,
+    },
+    data() {
+        return {
+            tooltip: '单击复制变量，双击色彩值',
+            copySucceeded: false,
+        };
+    },
+    methods: {
+        onClick() {
+            this.copySucceeded = copy(this.name);
+            setTimeout(() => this.copySucceeded = false, 600);
+        },
+        onDblClick() {
+            this.copySucceeded = copy(this.value);
+            setTimeout(() => this.copySucceeded = false, 600);
+        },
     },
 };
 </script>
@@ -19,6 +39,11 @@ export default {
 .root {
     position: relative;
     height: 80px;
+}
+
+.root:hover {
+    border-color: #e9eef5;
+    box-shadow: 0 2px 10px rgba(90,95,100,0.12);
 }
 
 .name {
