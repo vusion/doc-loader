@@ -1,12 +1,12 @@
 import Vue from 'vue';
+
 import VueRouter from 'vue-router';
-import CodeExamplePlugin from './CodeExamplePlugin';
-import * as ProtoUI from 'proto-ui.vusion';
-import * as Library from 'library';
-import { install } from 'vusion-utils';
 Vue.use(VueRouter);
+
+import CodeExamplePlugin from './CodeExamplePlugin';
 Vue.use(CodeExamplePlugin);
 
+import { install } from 'vusion-utils';
 import 'baseCSS';
 
 // 自动注册本地组件
@@ -18,8 +18,10 @@ requires.keys().forEach((key) => {
     Vue.component(name, requires(key).default);
 });
 
-install(ProtoUI, Vue);
-install(Library, Vue);
+import * as ProtoUI from 'proto-ui.vusion';
+import * as Library from 'library';
+install(Vue, ProtoUI);
+install(Vue, Library);
 
 /* eslint-disable no-undef */
 if (DOCS_COMPONENTS_PATH) {

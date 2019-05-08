@@ -25,13 +25,10 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "globby": "^6.1.0",
-    "highlight.js": "^9.10.0",
-    "loader-utils": "^1.1.0",
-    "markdown-it": "^8.3.1",
-    "proto-ui.vusion": "^0.4.0-alpha.4",
+    "proto-ui.vusion": "^0.4.0",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
-    "vusion-utils": "^0.2.4"
+    "vusion-utils": "^0.3.3"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
