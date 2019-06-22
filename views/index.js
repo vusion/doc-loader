@@ -7,7 +7,6 @@ import CodeExamplePlugin from './CodeExamplePlugin';
 Vue.use(CodeExamplePlugin);
 
 import { install } from 'vusion-utils';
-import 'baseCSS';
 
 // 自动注册本地组件
 const requires = require.context('../components/', true, /\.vue$/);
@@ -18,10 +17,24 @@ requires.keys().forEach((key) => {
     Vue.component(name, requires(key).default);
 });
 
+import $docs from '../lib/auto-loader!./empty';
+Vue.prototype.$docs = $docs;
+Vue.prototype.NODE_ENV = process.env.NODE_ENV;
+
 import * as ProtoUI from 'proto-ui.vusion';
+import 'baseCSS';
 import * as Library from 'library';
+
 install(Vue, ProtoUI);
-install(Vue, Library);
+if ($docs.install === 'option-name') {
+    Object.keys(Library).forEach((key) => {
+        const Component = Library[key];
+        const name = typeof Component === 'function' ? Component.options.name : Component.name;
+        name && Vue.component(name, Component);
+    });
+} else
+    install(Vue, Library);
+
 
 /* eslint-disable no-undef */
 if (DOCS_COMPONENTS_PATH) {
@@ -33,11 +46,6 @@ if (DOCS_COMPONENTS_PATH) {
         Vue.component(name, requires2(key).default);
     });
 }
-
-// 使用 routes-loader 解析 routes 文件
-import $docs from '../lib/auto-loader!./empty';
-Vue.prototype.$docs = $docs;
-Vue.prototype.NODE_ENV = process.env.NODE_ENV;
 
 document.title = $docs.title || 'Vusion 组件库';
 
