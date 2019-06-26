@@ -35,7 +35,6 @@ if ($docs.install === 'option-name') {
 } else
     install(Vue, Library);
 
-
 /* eslint-disable no-undef */
 if (DOCS_COMPONENTS_PATH) {
     const requires2 = require.context(DOCS_COMPONENTS_PATH, true, /\.vue$/);
