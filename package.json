@@ -1,7 +1,7 @@
 {
   "name": "@vusion/doc-loader",
   "description": "Webpack loader to generate Vusion component docs.",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "repository": "vusion/doc-loader",
@@ -28,7 +28,7 @@
     "proto-ui.vusion": "^0.4.0",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
-    "vusion-utils": "^0.3.3"
+    "vusion-utils": "^0.4.0"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
