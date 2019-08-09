@@ -46,6 +46,11 @@ if (DOCS_COMPONENTS_PATH) {
     });
 }
 
+if (DOCS_IMPORTS_PATH) {
+    const imports = require(DOCS_IMPORTS_PATH);
+    install(Vue, imports);
+}
+
 document.title = $docs.title || 'Vusion 组件库';
 
 new Vue({
