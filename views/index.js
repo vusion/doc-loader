@@ -17,13 +17,13 @@ requires.keys().forEach((key) => {
     Vue.component(name, requires(key).default);
 });
 
-import $docs from '../lib/auto-loader!./empty';
+import $docs from './empty';
 Vue.prototype.$docs = $docs;
 Vue.prototype.NODE_ENV = process.env.NODE_ENV;
 
 import * as ProtoUI from 'proto-ui.vusion';
 import 'baseCSS';
-import * as Library from 'library';
+import * as Library from '@@';
 
 install(Vue, ProtoUI);
 if ($docs.install === 'option-name') {
