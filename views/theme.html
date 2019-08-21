@@ -18,7 +18,7 @@
     var linkEl = document.createElement('link');
     linkEl.id = 'theme-css';
     linkEl.rel = 'stylesheet';
-    linkEl.href = '<%= webpackConfig.output.publicPath %>' + getThemeCSS(theme);
+    linkEl.href = '<%= webpackConfig.output.publicPath %>css/' + getThemeCSS(theme);
     document.head.appendChild(linkEl);
     </script>
     <% htmlWebpackPlugin.files.js.forEach((jsFile) => { %>
