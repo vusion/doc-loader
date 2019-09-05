@@ -20,6 +20,8 @@ requires.keys().forEach((key) => {
 import $docs from './empty';
 Vue.prototype.$docs = $docs;
 Vue.prototype.NODE_ENV = process.env.NODE_ENV;
+if (process.env.NODE_ENV === 'development')
+    window.$docs = $docs; // 方便开发时调试
 
 import * as ProtoUI from 'proto-ui.vusion';
 import 'baseCSS';
