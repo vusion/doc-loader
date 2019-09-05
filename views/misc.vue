@@ -4,15 +4,21 @@
         <u-sidebar :class="$style.sidebar">
             <template v-for="group in groups">
                 <template v-if="!group.name">
-                    <u-sidebar-item v-for="component in group.children" :key="component.name"
-                                    :href="component.href" :to="component.to ? component.to : '/misc/' + component.name" :target="component.target">
-                        {{ component.alias }} <small>{{ component.name }}</small>
+                    <u-sidebar-item v-for="material in group.children" :key="material.name"
+                                    :href="material.href" :to="material.to ? material.to : '/misc/' + material.name" :target="material.target">
+                        {{ material.name }}
+                        <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <u-label v-else-if="material.newest" color="primary">新的</u-label>
+                        <small :class="$style.alias">{{ material.alias }}</small>
                     </u-sidebar-item>
                 </template>
                 <u-sidebar-group v-else :key="group.name" :title="group.name">
-                    <u-sidebar-item v-for="component in group.children" :key="component.name"
-                                    :href="component.href" :to="component.to ? component.to : '/misc/' + component.name" :target="component.target">
-                        {{ component.alias }} <small>{{ component.name }}</small>
+                    <u-sidebar-item v-for="material in group.children" :key="material.name"
+                                    :href="material.href" :to="material.to ? material.to : '/misc/' + material.name" :target="material.target">
+                        {{ material.name }}
+                        <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <u-label v-else-if="material.newest" color="primary">新的</u-label>
+                        <small :class="$style.alias">{{ material.alias }}</small>
                     </u-sidebar-item>
                 </u-sidebar-group>
             </template>
