@@ -25,11 +25,11 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
     "globby": "^6.1.0",
-    "proto-ui.vusion": "^0.4.0",
+    "proto-ui.vusion": "^0.4.16",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
     "vusion-api": "^0.2.4",
-    "vusion-utils": "^0.4.0"
+    "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
     "husky": "^3.0.4",
