@@ -38,20 +38,20 @@ if ($docs.install === 'option-name') {
     install(Vue, Library);
 
 /* eslint-disable no-undef */
-if (DOCS_COMPONENTS_PATH) {
-    const requires2 = require.context(DOCS_COMPONENTS_PATH, true, /\.vue$/);
-    requires2.keys().forEach((key) => {
-        if (key.indexOf('.vue') !== key.lastIndexOf('.vue'))
-            return;
-        const name = requires2(key).default.name || key.slice(key.lastIndexOf('/') + 1, key.lastIndexOf('.'));
-        Vue.component(name, requires2(key).default);
-    });
-}
+/* DOCS_COMPONENTS_PATH start */
+const requires2 = require.context(DOCS_COMPONENTS_PATH, true, /\.vue$/);
+requires2.keys().forEach((key) => {
+    if (key.indexOf('.vue') !== key.lastIndexOf('.vue'))
+        return;
+    const name = requires2(key).default.name || key.slice(key.lastIndexOf('/') + 1, key.lastIndexOf('.'));
+    Vue.component(name, requires2(key).default);
+});
+/* DOCS_COMPONENTS_PATH end */
 
-if (DOCS_IMPORTS_PATH) {
-    const imports = require(DOCS_IMPORTS_PATH);
-    install(Vue, imports);
-}
+/* DOCS_IMPORTS_PATH start */
+const imports = require(DOCS_IMPORTS_PATH);
+install(Vue, imports);
+/* DOCS_IMPORTS_PATH end */
 
 document.title = $docs.title || 'Vusion 组件库';
 
