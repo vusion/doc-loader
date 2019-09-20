@@ -1,5 +1,5 @@
 <template>
-<s-materials-view type="misc" :groups="groups"></s-materials-view>
+<s-materials-view type="misc" :groups="groups" :camel-name="false"></s-materials-view>
 </template>
 
 <script>

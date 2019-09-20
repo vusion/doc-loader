@@ -5,7 +5,7 @@
             <template v-if="!group.name">
                 <u-sidebar-item v-for="material in group.children" :key="material.name"
                                 :href="material.href" :to="material.to ? material.to : `/${type}/` + material.name" :target="material.target">
-                    {{ material.CamelName }}
+                    {{ camelName ? material.CamelName : material.name }}
                     <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
                     <u-label v-else-if="material.newest" color="primary">新的</u-label>
                     <small :class="$style.alias">{{ material.alias }}</small>
@@ -14,7 +14,7 @@
             <u-sidebar-group v-else :key="group.name" :title="group.name">
                 <u-sidebar-item v-for="material in group.children" :key="material.name"
                                 :href="material.href" :to="material.to ? material.to : `/${type}/` + material.name" :target="material.target">
-                    {{ material.CamelName }}
+                    {{ camelName ? material.CamelName : material.name }}
                     <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
                     <u-label v-else-if="material.newest" color="primary">新的</u-label>
                     <small :class="$style.alias">{{ material.alias }}</small>
@@ -32,6 +32,7 @@ export default {
     props: {
         type: { type: String, default: 'components' },
         groups: Array,
+        camelName: { type: Boolean, default: true },
         sidebarSize: String,
     },
 };
