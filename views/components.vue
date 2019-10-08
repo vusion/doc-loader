@@ -5,7 +5,7 @@
 <script>
 export default {
     data() {
-        return { groups: this.$docs.componentGroups };
+        return { groups: this.$docs.componentsGroups };
     },
 };
 </script>
