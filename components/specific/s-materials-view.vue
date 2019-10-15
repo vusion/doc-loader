@@ -7,7 +7,7 @@
                                 :href="material.href" :to="material.to ? material.to : `/${type}/` + material.name" :target="material.target">
                     {{ camelName ? material.CamelName : material.name }}
                     <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
-                    <u-label v-else-if="material.newest" color="primary">新的</u-label>
+                    <u-label v-else-if="material.newest" color="primary">NEW</u-label>
                     <small :class="$style.alias">{{ material.alias }}</small>
                 </u-sidebar-item>
             </template>
@@ -16,7 +16,7 @@
                                 :href="material.href" :to="material.to ? material.to : `/${type}/` + material.name" :target="material.target">
                     {{ camelName ? material.CamelName : material.name }}
                     <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
-                    <u-label v-else-if="material.newest" color="primary">新的</u-label>
+                    <u-label v-else-if="material.newest" color="primary">NEW</u-label>
                     <small :class="$style.alias">{{ material.alias }}</small>
                 </u-sidebar-item>
             </u-sidebar-group>
