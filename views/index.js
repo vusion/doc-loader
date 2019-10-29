@@ -23,10 +23,10 @@ Vue.prototype.NODE_ENV = process.env.NODE_ENV;
 if (process.env.NODE_ENV === 'development')
     window.$docs = $docs; // 方便开发时调试
 
-import * as ProtoUI from 'proto-ui.vusion';
+/* DEFAULT_PROJECT start */
+import * as ProtoUI from 'proto-ui.vusion/dist';
 import 'baseCSS';
 import * as Library from '@@';
-
 install(Vue, ProtoUI);
 if ($docs.install === 'option-name') {
     Object.keys(Library).forEach((key) => {
@@ -36,6 +36,14 @@ if ($docs.install === 'option-name') {
     });
 } else
     install(Vue, Library);
+/* DEFAULT_PROJECT end */
+/* COMPONENT_PACKAGE start */
+import '@@/../dist/index.css';
+import * as LibraryDist from '@@/../dist';
+import * as Components from '@';
+install(Vue, LibraryDist);
+install(Vue, Components);
+/* COMPONENT_PACKAGE end */
 
 /* eslint-disable no-undef */
 /* DOCS_COMPONENTS_PATH start */

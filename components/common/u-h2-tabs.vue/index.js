@@ -1,4 +1,4 @@
-import { UTabs } from 'proto-ui.vusion';
+import { UTabs } from 'proto-ui.vusion/dist';
 
 export const UH2Tabs = {
     name: 'u-h2-tabs',
