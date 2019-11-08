@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style module>
-.sidebar[class] {
+.sidebar {
     padding: 36px 0;
 }
 
