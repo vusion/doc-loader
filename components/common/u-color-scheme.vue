@@ -56,7 +56,7 @@ export default {
     color: white;
     padding: 2px 4px;
     /* opacity: 0; */
-    transition: opacity $transition-duration-base;
+    transition: opacity var(--transition-duration-base);
 }
 
 .root:hover .name {

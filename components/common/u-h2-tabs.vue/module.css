@@ -23,7 +23,7 @@
 
 .item[selected] {
     color: inherit;
-    border-top: 2px solid $brand-primary;
+    border-top: 2px solid var(--brand-primary);
 }
 
 .body {

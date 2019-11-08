@@ -48,7 +48,7 @@ export default {
     margin-bottom: 15px;
     border: 1px solid transparent;
     border-radius: 3px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .root:hover {
