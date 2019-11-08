@@ -1,4 +1,4 @@
-import { MEmitter } from 'proto-ui.vusion/dist';
+import { MEmitter } from 'proto-ui';
 import saferEval from 'safer-eval';
 
 const rawTypeRE = /^\[object (\w+)]$/;

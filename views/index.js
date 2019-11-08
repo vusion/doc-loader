@@ -24,10 +24,9 @@ if (process.env.NODE_ENV === 'development')
     window.$docs = $docs; // 方便开发时调试
 
 /* DEFAULT_PROJECT start */
-import * as ProtoUI from 'proto-ui.vusion/dist';
+import 'themeCSS';
 import 'baseCSS';
 import * as Library from '@@';
-install(Vue, ProtoUI);
 if ($docs.install === 'option-name') {
     Object.keys(Library).forEach((key) => {
         const Component = Library[key];
@@ -37,6 +36,20 @@ if ($docs.install === 'option-name') {
 } else
     install(Vue, Library);
 /* DEFAULT_PROJECT end */
+/* MATERIAL_LIBRARY start */
+// // import * as ProtoUI from 'proto-ui';
+// import 'baseCSS';
+// import * as Library from '@@';
+// // install(Vue, ProtoUI);
+// if ($docs.install === 'option-name') {
+//     Object.keys(Library).forEach((key) => {
+//         const Component = Library[key];
+//         const name = typeof Component === 'function' ? Component.options.name : Component.name;
+//         name && Vue.component(name, Component);
+//     });
+// } else
+//     install(Vue, Library);
+/* MATERIAL_LIBRARY end */
 /* COMPONENT_PACKAGE start */
 import '@@/../dist/index.css';
 import * as LibraryDist from '@@/../dist';
