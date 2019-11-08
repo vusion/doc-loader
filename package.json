@@ -1,7 +1,7 @@
 {
   "name": "@vusion/doc-loader",
   "description": "Webpack loader to generate Vusion component docs.",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "repository": "vusion/doc-loader",
@@ -25,10 +25,10 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
     "globby": "^6.1.0",
-    "proto-ui.vusion": "^0.4.27",
+    "proto-ui.vusion": "^0.6.0",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
-    "vusion-api": "^0.5.1",
+    "vusion-api": "^0.5.2",
     "vusion-utils": "^0.4.5"
   },
   "devDependencies": {
