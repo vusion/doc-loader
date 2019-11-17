@@ -23,8 +23,8 @@ Vue.prototype.NODE_ENV = process.env.NODE_ENV;
 if (process.env.NODE_ENV === 'development')
     window.$docs = $docs; // 方便开发时调试
 
-/* DEFAULT_PROJECT start */
 import 'themeCSS';
+/* DEFAULT_PROJECT start */
 import 'baseCSS';
 import * as Library from '@@';
 if ($docs.install === 'option-name') {
@@ -52,11 +52,22 @@ if ($docs.install === 'option-name') {
 /* MATERIAL_LIBRARY end */
 /* COMPONENT_PACKAGE start */
 import '@@/../dist/index.css';
-import * as LibraryDist from '@@/../dist';
+import * as CLibraryDist from '@@/../dist';
 import * as Components from '@';
-install(Vue, LibraryDist);
+install(Vue, CLibraryDist);
 install(Vue, Components);
 /* COMPONENT_PACKAGE end */
+/* BLOCK_PACKAGE start */
+import '@@/../dist/index.css';
+import * as BLibraryDist from '@@/../dist';
+import Block from '@';
+const blockName = ((packageName) => {
+    const cap = /([a-zA-Z0-9-_]+)\.vue$/.exec(packageName);
+    return cap[1].replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
+})($docs.package.name);
+install(Vue, BLibraryDist);
+install(Vue, { [blockName]: Block });
+/* BLOCK_PACKAGE end */
 
 /* eslint-disable no-undef */
 /* DOCS_COMPONENTS_PATH start */
