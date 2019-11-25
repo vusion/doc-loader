@@ -52,21 +52,37 @@ if ($docs.install === 'option-name') {
 /* MATERIAL_LIBRARY end */
 /* COMPONENT_PACKAGE start */
 import '@@/../dist/index.css';
+import '../styles/vue-package.css';
 import * as CLibraryDist from '@@/../dist';
-import * as Components from '@';
 install(Vue, CLibraryDist);
-install(Vue, Components);
+import * as Components from '@';
+if (Object.keys(Components).length > 1)
+    install(Vue, Components);
+else {
+    const name = ((packageName) => {
+        const cap = /([a-zA-Z0-9-_]+)\.vue$/.exec(packageName);
+        return cap[1].replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
+    })($docs.package.name);
+    install(Vue, { [name]: Components.default });
+}
+$docs.routes[0] = $docs.routes[0].children[1].children[1];
+$docs.routes[0].path = '/';
 /* COMPONENT_PACKAGE end */
 /* BLOCK_PACKAGE start */
 import '@@/../dist/index.css';
+import '../styles/vue-package.css';
 import * as BLibraryDist from '@@/../dist';
-import Block from '@';
-const blockName = ((packageName) => {
-    const cap = /([a-zA-Z0-9-_]+)\.vue$/.exec(packageName);
-    return cap[1].replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
-})($docs.package.name);
 install(Vue, BLibraryDist);
-install(Vue, { [blockName]: Block });
+import * as Blocks from '@';
+if (Object.keys(Blocks).length > 1)
+    install(Vue, Blocks);
+else {
+    const name = ((packageName) => {
+        const cap = /([a-zA-Z0-9-_]+)\.vue$/.exec(packageName);
+        return cap[1].replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
+    })($docs.package.name);
+    install(Vue, { [name]: Blocks.default });
+}
 /* BLOCK_PACKAGE end */
 
 /* eslint-disable no-undef */

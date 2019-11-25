@@ -28,7 +28,7 @@
     "proto-ui.vusion": "^0.6.0",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
-    "vusion-api": "^0.5.8",
+    "vusion-api": "^0.5.9",
     "vusion-utils": "^0.4.6"
   },
   "devDependencies": {
