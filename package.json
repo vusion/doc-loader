@@ -1,7 +1,7 @@
 {
   "name": "@vusion/doc-loader",
   "description": "Webpack loader to generate Vusion component docs.",
-  "version": "0.13.4",
+  "version": "0.13.5",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "repository": "vusion/doc-loader",

@@ -83,6 +83,8 @@ else {
     })($docs.package.name);
     install(Vue, { [name]: Blocks.default });
 }
+$docs.routes[0] = $docs.routes[0].children[1].children[1];
+$docs.routes[0].path = '/';
 /* BLOCK_PACKAGE end */
 
 /* eslint-disable no-undef */
