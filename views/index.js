@@ -60,7 +60,7 @@ if (Object.keys(Components).length > 1)
     install(Vue, Components);
 else {
     const name = ((packageName) => {
-        const cap = /([a-zA-Z0-9-_]+)\.vue$/.exec(packageName);
+        const cap = /([a-zA-Z0-9-_]+)(\.vue)?$/.exec(packageName);
         return (cap ? cap[1] : packageName).replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
     })($docs.package.name);
     install(Vue, { [name]: Components.default });
@@ -78,7 +78,7 @@ if (Object.keys(Blocks).length > 1)
     install(Vue, Blocks);
 else {
     const name = ((packageName) => {
-        const cap = /([a-zA-Z0-9-_]+)\.vue$/.exec(packageName);
+        const cap = /([a-zA-Z0-9-_]+)(\.vue)?$/.exec(packageName);
         return (cap ? cap[1] : packageName).replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
     })($docs.package.name);
     install(Vue, { [name]: Blocks.default });
