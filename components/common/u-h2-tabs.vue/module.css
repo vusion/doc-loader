@@ -1,4 +1,4 @@
-@extend 'cloud-ui.vusion/src/components/u-tabs.vue/module.css';
+@extends 'cloud-ui.vusion/src/components/u-tabs.vue/module.css';
 
 .root {}
 
