@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { copy } from 'proto-ui.vusion/src/utils';
+import { utils } from 'cloud-ui';
 
 export default {
     name: 'u-color-scheme',
@@ -24,11 +24,11 @@ export default {
     },
     methods: {
         onClick() {
-            this.copySucceeded = copy(this.name);
+            this.copySucceeded = utils.copy(this.name);
             setTimeout(() => this.copySucceeded = false, 600);
         },
         onDblClick() {
-            this.copySucceeded = copy(this.value);
+            this.copySucceeded = utils.copy(this.value);
             setTimeout(() => this.copySucceeded = false, 600);
         },
     },

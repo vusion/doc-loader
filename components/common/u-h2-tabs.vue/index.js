@@ -1,4 +1,4 @@
-import { UTabs } from 'proto-ui';
+import { UTabs } from 'cloud-ui';
 
 export const UH2Tabs = {
     name: 'u-h2-tabs',

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { copy } from 'proto-ui.vusion/src/utils';
+import { utils } from 'cloud-ui';
 
 export default {
     props: {
@@ -26,11 +26,11 @@ export default {
         onClick() {
             const packageName = this.$docs.package && this.$docs.package.name;
             const prefix = packageName ? `${packageName}/src/components/${this.icon}.vue` : `${this.icon}.vue`;
-            this.copySucceeded = copy(`icon-font: url('${prefix}/assets/${this.name}.svg');`);
+            this.copySucceeded = utils.copy(`icon-font: url('${prefix}/assets/${this.name}.svg');`);
             setTimeout(() => this.copySucceeded = false, 600);
         },
         onDblClick() {
-            this.copySucceeded = copy(`<${this.icon} name="${this.name}"></${this.icon}>`);
+            this.copySucceeded = utils.copy(`<${this.icon} name="${this.name}"></${this.icon}>`);
             setTimeout(() => this.copySucceeded = false, 600);
         },
     },

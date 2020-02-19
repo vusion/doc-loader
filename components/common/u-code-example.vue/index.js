@@ -1,6 +1,6 @@
 import '../atom-one-light.css';
 import { formatValue } from '../u-data-view-node.vue/utils';
-import { copy } from 'proto-ui.vusion/src/utils';
+import { utils } from 'cloud-ui';
 
 export default {
     name: 'u-code-example',
@@ -46,7 +46,7 @@ export default {
             this.$emit('update:showCode', this.currentShowCode);
         },
         copyCode() {
-            this.copySucceeded = copy(this.$refs.code.innerText);
+            this.copySucceeded = utils.copy(this.$refs.code.innerText);
             setTimeout(() => this.copySucceeded = false, 600);
         },
         toggleShowDetail() {

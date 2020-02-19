@@ -37,7 +37,6 @@ if ($docs.install === 'option-name') {
     install(Vue, Library);
 /* DEFAULT_PROJECT end */
 /* MATERIAL_LIBRARY start */
-// // import * as ProtoUI from 'proto-ui';
 // import 'baseCSS';
 // import * as Library from '@@';
 // // install(Vue, ProtoUI);

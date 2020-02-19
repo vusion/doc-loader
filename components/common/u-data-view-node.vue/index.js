@@ -1,4 +1,4 @@
-import { MEmitter } from 'proto-ui';
+import { MEmitter } from 'cloud-ui';
 import saferEval from 'safer-eval';
 
 const rawTypeRE = /^\[object (\w+)]$/;
