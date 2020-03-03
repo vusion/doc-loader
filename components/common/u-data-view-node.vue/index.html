@@ -14,7 +14,7 @@
             ></textarea>
         </span>
     </div>
-    <div :class="$style.list" v-if="currentExpanded && keys">
+    <div :class="$style.list" v-if="currentExpanded && keys && keys.length < 1000">
         <u-data-view-node
             v-for="subKey in keys"
             :key="subKey"
