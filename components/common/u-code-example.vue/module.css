@@ -1,6 +1,6 @@
 .root {
     margin: 10px 0;
-    border: 1px solid var(--border-color-base);
+    border: 1px solid var(--border-color-light);
     border-radius: var(--border-radius-base);
     transition: box-shadow var(--transition-duration-base);
 }
@@ -12,7 +12,7 @@
 .head {
     position: relative;
     height: 29px;
-    border-top: 1px solid var(--border-color-base);
+    border-top: 1px solid var(--border-color-light);
 }
 
 .title {
@@ -67,7 +67,7 @@
 .toolbar-divider {
     display: inline-block;
     width: 1px;
-    background: var(--border-color-base);
+    background: var(--border-color-light);
     height: 18px;
     margin: 5px 8px;
     vertical-align: top;
@@ -78,7 +78,7 @@
 }
 
 .body {
-    border-top: 1px solid var(--border-color-base);
+    border-top: 1px solid var(--border-color-light);
     transition: var(--transition-duration-base) height ease-in-out, var(--transition-duration-base) padding-top ease-in-out, var(--transition-duration-base) padding-bottom ease-in-out;
 }
 
@@ -96,11 +96,11 @@
     width: 50%;
     height: 100px;
     overflow: auto;
-    border-left: 1px solid var(--border-color-base);
+    border-left: 1px solid var(--border-color-light);
 }
 
 .code {
-    border-top: 1px solid var(--border-color-base);
+    border-top: 1px solid var(--border-color-light);
     background: #f8f9fb;
     transition: var(--transition-duration-base) height ease-in-out, var(--transition-duration-base) padding-top ease-in-out, var(--transition-duration-base) padding-bottom ease-in-out;
 }
