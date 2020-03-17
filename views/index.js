@@ -39,7 +39,7 @@ if ($docs.install === 'option-name') {
 /* MATERIAL_LIBRARY start */
 // import 'baseCSS';
 // import * as Library from '@@';
-// // install(Vue, ProtoUI);
+// // install(Vue, CloudUI);
 // if ($docs.install === 'option-name') {
 //     Object.keys(Library).forEach((key) => {
 //         const Component = Library[key];
