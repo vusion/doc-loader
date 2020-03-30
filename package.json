@@ -24,8 +24,9 @@
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
-    "globby": "^6.1.0",
     "cloud-ui.vusion": "^0.6.10",
+    "codesandbox": "^2.1.12",
+    "globby": "^6.1.0",
     "safer-eval": "^1.2.3",
     "vue-router": "^3.0.1",
     "vusion-api": "^0.5.21",
